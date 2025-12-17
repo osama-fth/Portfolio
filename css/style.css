@@ -1,0 +1,546 @@
+/* ===================================
+   Modern Portfolio Theme
+   =================================== */
+
+:root {
+    --primary-color: #4a90e2;
+    --success-color: #52c41a;
+    --warning-color: #faad14;
+    --danger-color: #f5222d;
+    --info-color: #13c2c2;
+    --dark-bg: #1a1a2e;
+    --darker-bg: #16213e;
+    --card-bg: #0f3460;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-primary: #f1f1f1;
+    --text-secondary: #a8b2d1;
+}
+
+body {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+}
+
+main#app {
+    flex: 1;
+    min-height: calc(100vh - 200px);
+}
+
+/* ===================================
+   Typography
+   =================================== */
+
+.font-monospace {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* ===================================
+   Navbar
+   =================================== */
+
+.navbar {
+    backdrop-filter: blur(20px) saturate(180%);
+    background-color: rgba(22, 33, 62, 0.85) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 0.5rem;
+    margin: 0 0.25rem;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+    background-color: rgba(74, 144, 226, 0.15);
+}
+
+/* ===================================
+   Cards & Content Blocks
+   =================================== */
+
+.card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(15, 52, 96, 0.8) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.card-header {
+    background: rgba(74, 144, 226, 0.08);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem;
+}
+
+/* ===================================
+   Badges & Tags
+   =================================== */
+
+.badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+
+.btn {
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #5ba3f5 100%);
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(135deg, #5ba3f5 0%, var(--primary-color) 100%);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   Animations
+   =================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Stagger animation for list items */
+.fade-in-item {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.fade-in-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.fade-in-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.fade-in-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.fade-in-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.fade-in-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+
+.hero-section {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #4a90e2 0%, #13c2c2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* ===================================
+   Skills Section
+   =================================== */
+
+.skill-item {
+    display: inline-block;
+    margin: 0.3rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* ===================================
+   Projects Section
+   =================================== */
+
+.project-card {
+    height: 100%;
+}
+
+.project-type-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+/* ===================================
+   Timeline (Education)
+   =================================== */
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+footer {
+    margin-top: auto;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+}
+
+/* ===================================
+   Custom Scrollbar
+   =================================== */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--info-color) 100%);
+    border-radius: 6px;
+    border: 2px solid var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--info-color) 0%, var(--primary-color) 100%);
+}
+
+/* ===================================
+   Links
+   =================================== */
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color) !important;
+}
+
+/* ===================================
+   Utility Classes
+   =================================== */
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--info-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.code-block {
+    background-color: var(--darker-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    overflow-x: auto;
+}
+
+/* Smooth section backgrounds */
+section {
+    position: relative;
+}
+
+/* Subtle gradient overlays */
+.card-body {
+    position: relative;
+    z-index: 1;
+}
+
+/* Improved text readability */
+p,
+li {
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+}
+
+/* ===================================
+   Enhanced Navigation & Layout
+   =================================== */
+
+/* Stat Cards - Home Page */
+.stat-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(15, 52, 96, 0.9) 100%);
+}
+
+.stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(74, 144, 226, 0.25);
+}
+
+/* Contact Cards */
+.contact-card {
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3);
+}
+
+/* Education Cards */
+.education-card {
+    position: relative;
+    overflow: visible;
+}
+
+.education-card::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 20px;
+    width: 4px;
+    height: calc(100% - 40px);
+    background: linear-gradient(180deg, var(--primary-color), var(--info-color));
+    border-radius: 2px;
+}
+
+.education-card::after {
+    content: '';
+    position: absolute;
+    left: -21px;
+    top: 30px;
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border: 3px solid var(--darker-bg);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* Project Cards Enhanced */
+.project-card {
+    position: relative;
+}
+
+.project-card .card-header {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(19, 194, 194, 0.1) 100%);
+}
+
+/* Improved Spacing */
+.container {
+    max-width: 1200px;
+}
+
+.py-5 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+/* Section Headers */
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Badge Subtle Variants */
+.badge.bg-secondary-subtle {
+    background-color: rgba(108, 117, 125, 0.15) !important;
+}
+
+.badge.bg-info-subtle {
+    background-color: rgba(19, 194, 194, 0.15) !important;
+}
+
+.badge.bg-primary-subtle {
+    background-color: rgba(74, 144, 226, 0.15) !important;
+}
+
+/* Link hover states */
+a[data-route] {
+    cursor: pointer;
+}
+
+/* Grid improvements */
+.g-3 {
+    gap: 1rem !important;
+}
+
+.g-4 {
+    gap: 1.5rem !important;
+}
+
+/* Better visual hierarchy */
+hr.opacity-25 {
+    opacity: 0.15 !important;
+}
+
+/* Smooth animations for cards */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-item {
+    animation: slideInUp 0.6s ease-out forwards;
+}
