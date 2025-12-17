@@ -105,7 +105,7 @@ export const portfolioData = {
             type: "university",
             status: "Completato",
             description: "Applicazione desktop modulare progettata sui principi OOP. Implementa rigorosamente il pattern MVC per disaccoppiare la logica di business dalle interfacce, permettendo il supporto simultaneo di GUI e CLI sullo stesso core applicativo.",
-            technologies: ["Java 21", "Swing", "JUnit 5", "Makefile", "File I/O"],
+            technologies: ["Java 21", "Swing", "JUnit 5"],
             features: [
                 "Implementazione architetturale MVC",
                 "Interfaccia polimorfica (Swing e CLI)",
@@ -153,7 +153,7 @@ export const portfolioData = {
             type: "university",
             status: "Completato",
             description: "Esempio essenziale di comunicazione Client-Server in C. Gestisce manualmente la connessione TCP/IP e lo scambio di messaggi utilizzando le librerie di rete standard di sistema (Socket API).",
-            technologies: ["C", "TCP/IP", "GCC"],
+            technologies: ["C", "TCP/IP"],
             features: [
                 "Architettura client-server",
                 "Programmazione socket a basso livello",
@@ -167,7 +167,7 @@ export const portfolioData = {
             id: 6,
             name: "Compilatore ac/dc",
             type: "university",
-            status: "In corso",
+            status: "In sviluppo",
             description: "Sviluppo di un compilatore completo per un linguaggio di programmazione custom, realizzato interamente in Java puro senza l'ausilio di generatori di parser. Il progetto copre l'intera pipeline di compilazione: dall'analisi lessicale e sintattica basata su algoritmi a discesa ricorsiva, fino alla generazione di codice intermedio o eseguibile.",
             technologies: ["Java 21", "JUnit 5"],
             features: [
@@ -178,17 +178,21 @@ export const portfolioData = {
             "github": "https://github.com/osama-fth/UPO-FLT-Compilatore-AcDc",
             "year": "2025"
         },
-        // {
-        //     id: 7,
-        //     name: "Progetto Ing. Software",
-        //     type: "university",
-        //     status: "In sviluppo",
-        //     description: "Progetto di gruppo per la progettazione e sviluppo di un sistema software complesso seguendo il ciclo di vita del software.",
-        //     technologies: ["Java", "UML", "Design Patterns"],
-        //     features: ["Agile/Scrum", "Diagrammi UML", "Testing unitario"],
-        //     github: "https://github.com/osama-fth/Software-Engineering", 
-        //     year: "2025"
-        // },
+        {
+            id: 7,
+            name: "EasyBook",
+            type: "university",
+            status: "In sviluppo",
+            description: "Progetto di gruppo per la progettazione e sviluppo di un sistema software complesso seguendo il ciclo di vita del software.",
+            technologies: ["Java 21", "Javafx", "Junit", "UML", "Design Patterns"],
+            features: [
+                "Ingegneria dei Requisiti e Modellazione UML (Casi d'uso, Classi, Sequenza)",
+                "Applicazione di Design Patterns (es. Singleton, Strategy, Observer)",
+                "Interfaccia utente reattiva sviluppata in JavaFX con architettura FXML",
+            ],
+            github: "https://github.com/osama-fth/UPO-Ing-Softaware-EasyBook",
+            year: "2025"
+        },
 
         // ==========================
         // PROGETTI PERSONALI
@@ -240,17 +244,17 @@ export const portfolioData = {
             github: "https://github.com/osama-fth/CodiceFiscale",
             year: "2025"
         },
-        // {
-        //     id: 11,
-        //     name: "Go Port Scanner",
-        //     type: "personal",
-        //     status: "In sviluppo",
-        //     description: "Scanner di porte di rete ad alte prestazioni scritto in Go. Utilizza le goroutines per scansioni concorrenti ultra-veloci.",
-        //     technologies: ["Go", "Networking", "Concurrency"],
-        //     features: ["Scansione concorrente", "TCP Connect", "Analisi range IP"],
-        //     github: "https://github.com/osama-fth/Go-PortScanner",
-        //     year: "2025"
-        // }
+        {
+            id: 11,
+            name: "Go Port Scanner",
+            type: "personal",
+            status: "In sviluppo",
+            description: "Scanner di porte di rete ad alte prestazioni scritto in Go. Utilizza le goroutines per scansioni concorrenti ultra-veloci.",
+            technologies: ["Go", "Networking", "Concurrency"],
+            features: ["Scansione concorrente", "TCP Connect", "Analisi range IP"],
+            github: "https://github.com/osama-fth/Go-PortScanner",
+            year: "2025"
+        }
     ],
 
     // Contatti
@@ -281,8 +285,9 @@ export const portfolioData = {
 
     languages: [
         { name: "Italiano", level: "Madrelingua" },
-        { name: "Arabo", level: "Madrelingua" },
-        { name: "Inglese", level: "B2 (Intermedio)" }
+        { name: "Marocchino", level: "Madrelingua" },
+        { name: "Arabo", level: "Base" },
+        { name: "Inglese", level: "Intermedio" }
     ]
 };
 
