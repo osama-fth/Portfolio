@@ -254,6 +254,23 @@ export const portfolioData = {
             features: ["Scansione concorrente", "TCP Connect", "Analisi range IP"],
             github: "https://github.com/osama-fth/Go-PortScanner",
             year: "2025"
+        },
+        {
+            id: 12,
+            name: "LoadBalancer con Rate Limiting",
+            type: "personal",
+            status: "Completato",
+            description: "Sistema di load balancing con rate limiting implementato usando Nginx, Docker e Flask. Dimostra come distribuire il carico tra più server backend utilizzando l'algoritmo Least Connections e come proteggere il sistema con un rate limiter da overload.",
+            technologies: ["Nginx", "Docker", "Flask", "Python", "Bash"],
+            features: [
+                "Load Balancing con algoritmo Least Connections",
+                "Rate Limiting (1 richiesta/secondo + burst di 10)",
+                "Testing automatico con script bash paralleli",
+                "Architettura a microservizi containerizzata",
+                "Monitoring e logging delle richieste"
+            ],
+            github: "https://github.com/osama-fth/LoadBalancer",
+            year: "2025"
         }
     ],
 
