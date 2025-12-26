@@ -252,7 +252,7 @@ export const portfolioData = {
             description: "Scanner di porte di rete ad alte prestazioni scritto in Go. Utilizza le goroutines per scansioni concorrenti ultra-veloci.",
             technologies: ["Go", "Networking", "Concurrency"],
             features: ["Scansione concorrente", "TCP Connect", "Analisi range IP"],
-            github: "https://github.com/osama-fth/Go-PortScanner",
+            github: "https://github.com/osama-fth/PortScanner",
             year: "2025"
         },
         {
