@@ -1,23 +1,27 @@
 /* ===================================
-   Modern Portfolio Theme
+   Modern Portfolio Theme - Light & Blue
    =================================== */
 
 :root {
-    --primary-color: #4a90e2;
-    --success-color: #52c41a;
-    --warning-color: #faad14;
-    --danger-color: #f5222d;
-    --info-color: #13c2c2;
-    --dark-bg: #1a1a2e;
-    --darker-bg: #16213e;
-    --card-bg: #0f3460;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --text-primary: #f1f1f1;
-    --text-secondary: #a8b2d1;
+    --primary-color: #2563eb;
+    --secondary-color: #64748b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --info-color: #06b6d4;
+
+    /* Light Theme Colors */
+    --light-bg: #f8fafc;
+    --lighter-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --shadow-color: rgba(37, 99, 235, 0.1);
 }
 
 body {
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -46,6 +50,13 @@ h5,
 h6 {
     font-weight: 700;
     letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+p,
+li {
+    line-height: 1.7;
+    color: var(--text-secondary);
 }
 
 /* ===================================
@@ -54,8 +65,8 @@ h6 {
 
 .navbar {
     backdrop-filter: blur(20px) saturate(180%);
-    background-color: rgba(22, 33, 62, 0.85) !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -63,10 +74,11 @@ h6 {
     font-size: 1.25rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    color: var(--primary-color) !important;
 }
 
 .navbar-brand:hover {
-    color: var(--primary-color) !important;
+    color: #1d4ed8 !important;
 }
 
 .nav-link {
@@ -76,16 +88,17 @@ h6 {
     padding: 0.5rem 1rem !important;
     border-radius: 0.5rem;
     margin: 0 0.25rem;
+    color: var(--text-secondary) !important;
 }
 
 .nav-link:hover {
     color: var(--primary-color) !important;
-    background-color: rgba(74, 144, 226, 0.1);
+    background-color: #eff6ff;
 }
 
 .nav-link.active {
     color: var(--primary-color) !important;
-    background-color: rgba(74, 144, 226, 0.15);
+    background-color: #dbeafe;
 }
 
 /* ===================================
@@ -93,21 +106,22 @@ h6 {
    =================================== */
 
 .card {
-    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(15, 52, 96, 0.8) 100%);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 1rem;
     transition: all 0.3s ease;
     overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
-    border-color: rgba(74, 144, 226, 0.3);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border-color: #bfdbfe;
 }
 
 .card-header {
-    background: rgba(74, 144, 226, 0.08);
+    background: #f8fafc;
     border-bottom: 1px solid var(--border-color);
     padding: 1.25rem;
 }
@@ -127,7 +141,57 @@ h6 {
 
 .badge:hover {
     transform: scale(1.05);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Bootstrap Badge Overrides */
+.badge.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.badge.bg-secondary {
+    background-color: var(--secondary-color) !important;
+    color: white !important;
+}
+
+.badge.bg-success {
+    background-color: var(--success-color) !important;
+    color: white !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--warning-color) !important;
+    color: white !important;
+}
+
+.badge.bg-info {
+    background-color: var(--info-color) !important;
+    color: white !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+}
+
+/* Subtle Badges */
+.badge.bg-secondary-subtle {
+    background-color: #f1f5f9 !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-color);
+}
+
+.badge.bg-info-subtle {
+    background-color: #ecfeff !important;
+    color: #0e7490 !important;
+    border: 1px solid #a5f3fc;
+}
+
+.badge.bg-primary-subtle {
+    background-color: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1px solid #bfdbfe;
 }
 
 /* ===================================
@@ -143,14 +207,15 @@ h6 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #5ba3f5 100%);
-    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+    background: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
-    background: linear-gradient(135deg, #5ba3f5 0%, var(--primary-color) 100%);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    background: #1d4ed8;
 }
 
 .btn-outline-primary {
@@ -161,17 +226,20 @@ h6 {
 
 .btn-outline-primary:hover {
     background: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .btn-outline-light {
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
 }
 
 .btn-outline-light:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: #f8fafc;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
     transform: translateY(-2px);
 }
 
@@ -195,7 +263,6 @@ h6 {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Stagger animation for list items */
 .fade-in-item {
     opacity: 0;
     animation: fadeIn 0.5s ease-out forwards;
@@ -241,7 +308,7 @@ h6 {
 .hero-title {
     font-size: 3.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #4a90e2 0%, #13c2c2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -278,33 +345,8 @@ h6 {
     height: 100%;
 }
 
-.project-type-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 10;
-}
-
-/* ===================================
-   Timeline (Education)
-   =================================== */
-
-.timeline-item {
-    position: relative;
-    padding-left: 2rem;
-    border-left: 2px solid var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    top: 0;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
+.project-card .card-header {
+    background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
 }
 
 /* ===================================
@@ -313,138 +355,43 @@ h6 {
 
 footer {
     margin-top: auto;
+    background-color: var(--lighter-bg) !important;
+    border-top: 1px solid var(--border-color);
 }
 
 /* ===================================
-   Responsive Design
+   Education Cards
    =================================== */
 
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .navbar-brand {
-        font-size: 1.1rem;
-    }
-}
-
-/* ===================================
-   Custom Scrollbar
-   =================================== */
-
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--dark-bg);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--primary-color) 0%, var(--info-color) 100%);
-    border-radius: 6px;
-    border: 2px solid var(--dark-bg);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, var(--info-color) 0%, var(--primary-color) 100%);
-}
-
-/* ===================================
-   Links
-   =================================== */
-
-a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--primary-color) !important;
-}
-
-/* ===================================
-   Utility Classes
-   =================================== */
-
-.text-gradient {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--info-color) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.code-block {
-    background-color: var(--darker-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    padding: 1.25rem;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    overflow-x: auto;
-}
-
-/* Smooth section backgrounds */
-section {
-    position: relative;
-}
-
-/* Subtle gradient overlays */
-.card-body {
-    position: relative;
-    z-index: 1;
-}
-
-/* Improved text readability */
-p,
-li {
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--text-primary);
-}
-
-/* ===================================
-   Enhanced Navigation & Layout
-   =================================== */
-
-/* Stat Cards - Home Page */
-.stat-card {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(15, 52, 96, 0.9) 100%);
-}
-
-.stat-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 40px rgba(74, 144, 226, 0.25);
-}
-
-/* Contact Cards */
-.contact-card {
-    transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3);
-}
-
-/* Education Cards */
 .education-card {
     position: relative;
     overflow: visible;
+}
+
+.education-card .card-header.bg-gradient {
+    background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%) !important;
+    border-bottom: 2px solid #bfdbfe;
+    padding: 1.5rem;
+}
+
+.education-card .icon-wrapper {
+    background: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.education-card .highlight-item {
+    transition: all 0.3s ease;
+}
+
+.education-card .highlight-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .education-card::before {
@@ -466,83 +413,9 @@ h6 {
     width: 16px;
     height: 16px;
     background: var(--primary-color);
-    border: 3px solid var(--darker-bg);
+    border: 3px solid var(--lighter-bg);
     border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
-}
-
-/* Project Cards Enhanced */
-.project-card {
-    position: relative;
-}
-
-.project-card .card-header {
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.15) 0%, rgba(19, 194, 194, 0.1) 100%);
-}
-
-/* Improved Spacing */
-.container {
-    max-width: 1200px;
-}
-
-.py-5 {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-}
-
-/* Section Headers */
-.display-4 {
-    font-size: 2.5rem;
-    font-weight: 800;
-}
-
-/* Badge Subtle Variants */
-.badge.bg-secondary-subtle {
-    background-color: rgba(108, 117, 125, 0.15) !important;
-}
-
-.badge.bg-info-subtle {
-    background-color: rgba(19, 194, 194, 0.15) !important;
-}
-
-.badge.bg-primary-subtle {
-    background-color: rgba(74, 144, 226, 0.15) !important;
-}
-
-/* Link hover states */
-a[data-route] {
-    cursor: pointer;
-}
-
-/* Grid improvements */
-.g-3 {
-    gap: 1rem !important;
-}
-
-.g-4 {
-    gap: 1.5rem !important;
-}
-
-/* Better visual hierarchy */
-hr.opacity-25 {
-    opacity: 0.15 !important;
-}
-
-/* Smooth animations for cards */
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-item {
-    animation: slideInUp 0.6s ease-out forwards;
+    box-shadow: 0 0 0 3px #dbeafe;
 }
 
 /* ===================================
@@ -552,34 +425,48 @@ hr.opacity-25 {
 .accordion-item {
     background: transparent;
     margin-bottom: 1.5rem;
+    border: none;
 }
 
 .accordion-button {
     border-radius: 1rem !important;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(15, 52, 96, 0.8) 100%);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
     font-weight: 600;
     display: flex;
     align-items: center;
     gap: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .accordion-button:not(.collapsed) {
-    background: linear-gradient(135deg, rgba(74, 144, 226, 0.2) 0%, var(--card-bg) 100%);
-    border-color: rgba(74, 144, 226, 0.4);
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.15);
+    background: #eff6ff;
+    border-color: #93c5fd;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    color: var(--text-primary);
 }
 
 .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(74, 144, 226, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.15);
     border-color: var(--primary-color);
+}
+
+.accordion-button:hover {
+    background: #f0f9ff;
+    border-color: #bfdbfe;
 }
 
 .accordion-button::after {
     margin-left: auto;
     flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232563eb'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232563eb'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg);
 }
 
 .accordion-button .badge {
@@ -591,7 +478,6 @@ hr.opacity-25 {
     padding: 1.5rem 1rem;
 }
 
-/* Badge in Accordion Header */
 .accordion-button>div {
     flex: 1;
     min-width: 0;
@@ -599,19 +485,52 @@ hr.opacity-25 {
 
 .accordion-button>div strong {
     font-size: 1.1rem;
+    color: var(--text-primary);
 }
 
 .accordion-button>div small {
     display: block;
     margin-top: 0.25rem;
-    opacity: 0.8;
+    opacity: 0.7;
+    color: var(--text-secondary);
+}
+
+/* ===================================
+   Text Colors
+   =================================== */
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--text-secondary) !important;
+}
+
+.text-light {
+    color: var(--text-primary) !important;
+}
+
+.text-success {
+    color: var(--success-color) !important;
+}
+
+.text-warning {
+    color: var(--warning-color) !important;
+}
+
+.text-info {
+    color: var(--info-color) !important;
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
 }
 
 /* ===================================
    Responsive Improvements
    =================================== */
 
-/* Tablet & Mobile */
 @media (max-width: 992px) {
     .accordion-button {
         padding: 1.25rem;
@@ -631,7 +550,6 @@ hr.opacity-25 {
         right: 1.25rem;
     }
 
-    /* Stats Badge Container */
     .d-flex.justify-content-center.gap-2 {
         gap: 0.5rem !important;
     }
@@ -641,7 +559,6 @@ hr.opacity-25 {
         padding: 0.5rem 0.75rem !important;
     }
 
-    /* Project Cards */
     .project-card .card-header h4 {
         font-size: 1.1rem;
     }
@@ -650,7 +567,6 @@ hr.opacity-25 {
         padding: 1rem;
     }
 
-    /* Stats Cards on Home */
     .stat-card {
         padding: 1.5rem 1rem !important;
     }
@@ -664,7 +580,6 @@ hr.opacity-25 {
     }
 }
 
-/* Mobile Only */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
@@ -674,7 +589,6 @@ hr.opacity-25 {
         font-size: 1.1rem;
     }
 
-    /* Accordion Mobile */
     .accordion-button {
         padding: 1rem;
     }
@@ -695,7 +609,6 @@ hr.opacity-25 {
         padding: 1rem 0.5rem;
     }
 
-    /* Badge Adjustments */
     .badge {
         padding: 0.375rem 0.75rem;
         font-size: 0.8rem;
@@ -706,7 +619,6 @@ hr.opacity-25 {
         font-size: 0.75rem;
     }
 
-    /* Buttons */
     .btn-lg {
         padding: 0.6rem 1.25rem;
         font-size: 0.95rem;
@@ -717,7 +629,6 @@ hr.opacity-25 {
         font-size: 0.75rem;
     }
 
-    /* Cards */
     .card {
         border-radius: 0.75rem;
     }
@@ -730,7 +641,6 @@ hr.opacity-25 {
         padding: 1rem;
     }
 
-    /* Contact Cards */
     .contact-card .card-body i {
         font-size: 3rem !important;
     }
@@ -739,17 +649,28 @@ hr.opacity-25 {
         font-size: 1.1rem;
     }
 
-    /* Education Cards */
     .education-card::before,
     .education-card::after {
         display: none;
+    }
+
+    .education-card .card-header.bg-gradient {
+        padding: 1rem;
+    }
+
+    .education-card .icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .education-card .icon-wrapper i {
+        font-size: 1.5rem !important;
     }
 
     .education-card .card-body {
         padding: 1.25rem 1rem !important;
     }
 
-    /* Typography */
     .display-4 {
         font-size: 2rem;
     }
@@ -758,7 +679,6 @@ hr.opacity-25 {
         font-size: 1rem;
     }
 
-    /* Spacing */
     .py-5 {
         padding-top: 2.5rem !important;
         padding-bottom: 2.5rem !important;
@@ -768,14 +688,12 @@ hr.opacity-25 {
         margin-bottom: 2rem !important;
     }
 
-    /* Home Stats Grid */
     .row.mt-5.pt-4 {
         margin-top: 2rem !important;
         padding-top: 1rem !important;
     }
 }
 
-/* Small Mobile */
 @media (max-width: 576px) {
     .hero-title {
         font-size: 2rem;
@@ -785,12 +703,10 @@ hr.opacity-25 {
         font-size: 1rem;
     }
 
-    /* Full width project cards on small screens */
     .project-card {
         margin-bottom: 1rem;
     }
 
-    /* Accordion Compact */
     .accordion-button {
         font-size: 0.9rem;
         padding: 0.875rem;
@@ -801,7 +717,6 @@ hr.opacity-25 {
         padding: 0.25rem 0.5rem;
     }
 
-    /* Navigation */
     .navbar-brand {
         font-size: 1rem;
     }
@@ -811,7 +726,6 @@ hr.opacity-25 {
         font-size: 0.9rem;
     }
 
-    /* Reduce icon sizes */
     .bi {
         font-size: inherit;
     }

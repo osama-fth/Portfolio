@@ -82,49 +82,52 @@ export function renderEducation() {
     const educationItems = education.map((edu, index) => `
         <div class="col-12 mb-4 fade-in-item">
             <div class="card education-card">
-                <div class="card-body p-4">
-                    <div class="row align-items-start">
-                        <div class="col-md-8 mb-3 mb-md-0">
-                            <div class="d-flex align-items-start mb-3">
-                                <div class="me-3">
-                                    <i class="bi bi-mortarboard-fill text-primary" style="font-size: 2rem;"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-primary mb-2">${edu.degree}</h3>
-                                    <h5 class="text-light mb-2">
-                                        <i class="bi bi-building"></i> ${edu.institution}
-                                    </h5>
-                                    <p class="text-secondary mb-0">
-                                        <i class="bi bi-geo-alt"></i> ${edu.location}
-                                    </p>
-                                </div>
+                <div class="card-header bg-gradient">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-wrapper me-3">
+                                <i class="bi bi-mortarboard-fill text-primary" style="font-size: 2.5rem;"></i>
                             </div>
-                            <p class="text-secondary mb-3">${edu.description}</p>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="text-md-end mb-3">
-                                <span class="badge ${edu.status === 'In corso' ? 'bg-success' : 'bg-secondary'} mb-2">
-                                    <i class="bi bi-${edu.status === 'In corso' ? 'play-fill' : 'check-circle-fill'}"></i> ${edu.status}
-                                </span>
-                                <p class="text-secondary mb-1">
+                            <div>
+                                <h3 class="text-primary mb-1">${edu.degree}</h3>
+                                <p class="text-secondary mb-0">
                                     <i class="bi bi-calendar-event"></i> ${edu.period}
                                 </p>
-                                ${edu.grade ? `<p class="text-warning mb-0 fw-bold"><i class="bi bi-trophy"></i> ${edu.grade}</p>` : ''}
                             </div>
                         </div>
+                        <span class="badge bg-primary px-3 py-2">
+                            <i class="bi bi-award"></i> ${index === 0 ? 'In Corso' : 'Conseguito'}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <h5 class="text-light mb-2">
+                            <i class="bi bi-building text-info"></i> ${edu.institution}
+                        </h5>
+                        <p class="text-secondary mb-0">
+                            <i class="bi bi-geo-alt"></i> ${edu.location}
+                        </p>
                     </div>
                     
-                    <hr class="my-3 opacity-25">
+                    <p class="text-secondary mb-4 lead" style="line-height: 1.8;">${edu.description}</p>
+                    
+                    <hr class="my-4" style="opacity: 0.1;">
                     
                     <div class="highlights">
-                        <h6 class="text-info mb-3"><i class="bi bi-stars"></i> Competenze Chiave</h6>
-                        <div class="row g-2">
+                        <h6 class="text-info mb-3 d-flex align-items-center">
+                            <i class="bi bi-stars me-2"></i> 
+                            <span>Competenze Chiave</span>
+                        </h6>
+                        <div class="row g-3">
                             ${edu.highlights.map(highlight => `
                                 <div class="col-md-6">
-                                    <div class="d-flex align-items-start">
-                                        <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
-                                        <span class="text-light">${highlight}</span>
+                                    <div class="highlight-item p-3 rounded" style="background: #f8fafc; border-left: 3px solid var(--success-color);">
+                                        <div class="d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1" style="font-size: 1.1rem;"></i>
+                                            <span class="text-light" style="line-height: 1.6;">${highlight}</span>
+                                        </div>
                                     </div>
                                 </div>
                             `).join('')}
@@ -234,10 +237,10 @@ export function renderProjects() {
                     </span>
                 </div>
                 <div class="card-body">
-                    <p class="text-light mb-3">${project.description}</p>
+                    <p class="text-secondary mb-3" style="line-height: 1.7;">${project.description}</p>
                     
                     <div class="mb-3">
-                        <h6 class="text-secondary mb-2">
+                        <h6 class="text-primary mb-2">
                             <i class="bi bi-code-slash"></i> Tecnologie:
                         </h6>
                         <div class="d-flex flex-wrap gap-2">
@@ -248,12 +251,12 @@ export function renderProjects() {
                     </div>
                     
                     <div class="mb-3">
-                        <h6 class="text-secondary mb-2">
+                        <h6 class="text-primary mb-2">
                             <i class="bi bi-list-check"></i> Features:
                         </h6>
                         <ul class="small">
                             ${project.features.map(feature => `
-                                <li class="text-light">${feature}</li>
+                                <li class="text-secondary">${feature}</li>
                             `).join('')}
                         </ul>
                     </div>
@@ -264,7 +267,7 @@ export function renderProjects() {
                         </span>
                         <div>
                             ${project.github ? `
-                                <a href="${project.github}" target="_blank" class="btn btn-sm btn-outline-light me-1">
+                                <a href="${project.github}" target="_blank" class="btn btn-sm btn-outline-primary me-1">
                                     <i class="bi bi-github"></i> Code
                                 </a>
                             ` : ''}
@@ -310,13 +313,13 @@ export function renderProjects() {
                             <!-- Progetti Universitari -->
                             <div class="accordion-item mb-3 border-0 rounded fade-in-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button bg-info-subtle text-light" type="button" 
+                                    <button class="accordion-button" type="button" 
                                             data-bs-toggle="collapse" data-bs-target="#universityProjects" 
                                             aria-expanded="true" aria-controls="universityProjects">
-                                        <i class="bi bi-book-fill me-2 fs-4"></i>
+                                        <i class="bi bi-book-fill me-2 fs-4 text-info"></i>
                                         <div>
                                             <strong class="d-block">Progetti Universitari</strong>
-                                            <small class="text-secondary">Lavori sviluppati durante il percorso accademico</small>
+                                            <small>Lavori sviluppati durante il percorso accademico</small>
                                         </div>
                                         <span class="badge bg-info ms-auto me-3">${universityProjects.length}</span>
                                     </button>
@@ -334,13 +337,13 @@ export function renderProjects() {
                             <!-- Progetti Personali -->
                             <div class="accordion-item border-0 rounded fade-in-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed bg-danger-subtle text-light" type="button" 
+                                    <button class="accordion-button collapsed" type="button" 
                                             data-bs-toggle="collapse" data-bs-target="#personalProjects" 
                                             aria-expanded="false" aria-controls="personalProjects">
-                                        <i class="bi bi-heart-fill me-2 fs-4"></i>
+                                        <i class="bi bi-heart-fill me-2 fs-4 text-danger"></i>
                                         <div>
                                             <strong class="d-block">Progetti Personali</strong>
-                                            <small class="text-secondary">Esperimenti e side projects per crescita personale</small>
+                                            <small>Esperimenti e side projects per crescita personale</small>
                                         </div>
                                         <span class="badge bg-danger ms-auto me-3">${personalProjects.length}</span>
                                     </button>

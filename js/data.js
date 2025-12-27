@@ -16,8 +16,7 @@ export const portfolioData = {
             degree: "Laurea Triennale in Informatica (L-31)",
             institution: "Università del Piemonte Orientale",
             location: "Vercelli, Italia",
-            period: "2023 - Attuale",
-            status: "In corso",
+            period: "2023 - In Corso",
             description: "Percorso accademico che combina solide basi teoriche con competenze pratiche nello sviluppo software. Il piano di studi approfondisce l'intero stack tecnologico, dall'architettura hardware alla progettazione di applicazioni web e mobili.",
             highlights: [
                 "Architettura degli Elaboratori e Sistemi Operativi",
@@ -33,8 +32,6 @@ export const portfolioData = {
             institution: "IIS Biagio Pascal",
             location: "Romentino, Italia",
             period: "2018 - 2023",
-            status: "Completato",
-            grade: "89/100",
             description: "Indirizzo scientifico focalizzato sulle discipline STEM che integra lo studio tradizionale con un forte approccio laboratoriale e l'informatica curricolare al posto del latino.",
             highlights: [
                 "Analisi Matematica e Fisica",
@@ -302,9 +299,9 @@ export const portfolioData = {
 
     languages: [
         { name: "Italiano", level: "Madrelingua" },
-        { name: "Marocchino", level: "Madrelingua" },
-        { name: "Arabo", level: "Base" },
-        { name: "Inglese", level: "Intermedio" }
+        { name: "Inglese", level: "Intermedio" },
+        { name: "Arabo", level: "Intermediox" },
+
     ]
 };
 
