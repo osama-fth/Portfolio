@@ -229,8 +229,8 @@ export function renderProjects() {
                     <h4 class="mb-0 text-primary">
                         <i class="bi bi-folder-fill"></i> ${project.name}
                     </h4>
-                    <span class="badge ${project.type === 'university' ? 'bg-info' : 'bg-danger'}">
-                        ${project.type === 'university' ? 'Universitario' : 'Personale'}
+                    <span class="badge ${project.status === 'Completato' ? 'bg-success' : 'bg-warning'}">
+                        ${project.status}
                     </span>
                 </div>
                 <div class="card-body">
@@ -259,14 +259,9 @@ export function renderProjects() {
                     </div>
                     
                     <div class="d-flex justify-content-between align-items-center mt-3">
-                        <div>
-                            <span class="badge bg-${project.status === 'Completato' ? 'success' : 'warning'} me-2">
-                                ${project.status}
-                            </span>
-                            <span class="text-secondary small">
-                                <i class="bi bi-calendar"></i> ${project.year}
-                            </span>
-                        </div>
+                        <span class="text-secondary small">
+                            <i class="bi bi-calendar"></i> ${project.year}
+                        </span>
                         <div>
                             ${project.github ? `
                                 <a href="${project.github}" target="_blank" class="btn btn-sm btn-outline-light me-1">
@@ -308,33 +303,58 @@ export function renderProjects() {
                     </div>
                 </div>
                 
-                <div class="mb-5">
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="badge bg-info me-3" style="padding: 0.75rem;">
-                            <i class="bi bi-book fs-4"></i>
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        <!-- Accordion per progetti -->
+                        <div class="accordion" id="projectsAccordion">
+                            <!-- Progetti Universitari -->
+                            <div class="accordion-item mb-3 border-0 rounded fade-in-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button bg-info-subtle text-light" type="button" 
+                                            data-bs-toggle="collapse" data-bs-target="#universityProjects" 
+                                            aria-expanded="true" aria-controls="universityProjects">
+                                        <i class="bi bi-book-fill me-2 fs-4"></i>
+                                        <div>
+                                            <strong class="d-block">Progetti Universitari</strong>
+                                            <small class="text-secondary">Lavori sviluppati durante il percorso accademico</small>
+                                        </div>
+                                        <span class="badge bg-info ms-auto me-3">${universityProjects.length}</span>
+                                    </button>
+                                </h2>
+                                <div id="universityProjects" class="accordion-collapse collapse show" 
+                                     data-bs-parent="#projectsAccordion">
+                                    <div class="accordion-body pt-4">
+                                        <div class="row">
+                                            ${universityProjects.map(renderProjectCard).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetti Personali -->
+                            <div class="accordion-item border-0 rounded fade-in-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed bg-danger-subtle text-light" type="button" 
+                                            data-bs-toggle="collapse" data-bs-target="#personalProjects" 
+                                            aria-expanded="false" aria-controls="personalProjects">
+                                        <i class="bi bi-heart-fill me-2 fs-4"></i>
+                                        <div>
+                                            <strong class="d-block">Progetti Personali</strong>
+                                            <small class="text-secondary">Esperimenti e side projects per crescita personale</small>
+                                        </div>
+                                        <span class="badge bg-danger ms-auto me-3">${personalProjects.length}</span>
+                                    </button>
+                                </h2>
+                                <div id="personalProjects" class="accordion-collapse collapse" 
+                                     data-bs-parent="#projectsAccordion">
+                                    <div class="accordion-body pt-4">
+                                        <div class="row">
+                                            ${personalProjects.map(renderProjectCard).join('')}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h2 class="mb-0 text-info">Progetti Universitari</h2>
-                            <p class="text-secondary mb-0 small">Lavori sviluppati durante il percorso accademico</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        ${universityProjects.map(renderProjectCard).join('')}
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="badge bg-danger me-3" style="padding: 0.75rem;">
-                            <i class="bi bi-heart fs-4"></i>
-                        </div>
-                        <div>
-                            <h2 class="mb-0 text-danger">Progetti Personali</h2>
-                            <p class="text-secondary mb-0 small">Esperimenti e side projects per crescita personale</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        ${personalProjects.map(renderProjectCard).join('')}
                     </div>
                 </div>
             </div>

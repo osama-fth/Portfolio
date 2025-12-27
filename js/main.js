@@ -65,7 +65,6 @@ class App {
         });
 
         this.setupExternalLinks();
-        this.consoleEasterEgg();
     }
 
     setupExternalLinks() {
@@ -76,17 +75,6 @@ class App {
                 link.setAttribute('rel', 'noopener noreferrer');
             }
         });
-    }
-
-    consoleEasterEgg() {
-        console.log('%c👋 Ciao Developer!', 'font-size: 20px; font-weight: bold; color: #0d6efd;');
-        console.log('%cTi piace curiosare nel codice? Ottimo! 🔍', 'font-size: 14px; color: #198754;');
-        console.log('%cQuesto portfolio è stato costruito con:', 'font-size: 12px; color: #6c757d;');
-        console.log('%c  ✓ Vanilla JavaScript (ES6 Modules)', 'font-size: 11px; color: #0dcaf0;');
-        console.log('%c  ✓ Bootstrap 5', 'font-size: 11px; color: #0dcaf0;');
-        console.log('%c  ✓ SPA Architecture (no framework!)', 'font-size: 11px; color: #0dcaf0;');
-        console.log('%c\nInteressato? Contattami! 📧', 'font-size: 12px; color: #ffc107;');
-        console.log('%cGitHub: https://github.com/osama-fth', 'font-size: 11px; color: #6c757d;');
     }
 
     showError(error) {

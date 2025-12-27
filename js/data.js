@@ -165,17 +165,17 @@ export const portfolioData = {
         },
         {
             id: 6,
-            name: "Compilatore ac/dc",
+            name: "Compilatore Ac",
             type: "university",
             status: "In sviluppo",
-            description: "Sviluppo di un compilatore completo per un linguaggio di programmazione custom, realizzato interamente in Java puro senza l'ausilio di generatori di parser. Il progetto copre l'intera pipeline di compilazione: dall'analisi lessicale e sintattica basata su algoritmi a discesa ricorsiva, fino alla generazione di codice intermedio o eseguibile.",
+            description: "Sviluppo di un semplice compilatore a discesa ricorsiva per un linguaggio proprietario. Realizzato manualmente in Java per approfondire le dinamiche di parsing di una grammatica definita ad hoc.",
             technologies: ["Java 21", "JUnit 5"],
             features: [
                 "Analisi Lessicale con gestione dei token e delle espressioni regolari",
                 "Parser a discesa ricorsiva per la costruzione dell'AST",
                 "Analisi Semantica e Type Checking tramite Symbol Table",
             ],
-            "github": "https://github.com/osama-fth/UPO-FLT-Compilatore-AcDc",
+            "github": "https://github.com/osama-fth/UPO-FLT-Compilatore-Ac",
             "year": "2025"
         },
         {
