@@ -7,11 +7,8 @@ class App {
 
     init() {
         if (this.initialized) {
-            console.warn('App already initialized');
             return;
         }
-
-        console.log('🚀 Initializing Portfolio SPA...');
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
@@ -28,9 +25,7 @@ class App {
             this.setupGlobalListeners();
             this.handleInitialRoute();
             this.initialized = true;
-            console.log('✅ Portfolio SPA initialized successfully');
         } catch (error) {
-            console.error('❌ Error initializing app:', error);
             this.showError(error);
         }
     }
@@ -45,14 +40,6 @@ class App {
     }
 
     setupGlobalListeners() {
-        window.addEventListener('error', (e) => {
-            console.error('Global error:', e.error);
-        });
-
-        window.addEventListener('unhandledrejection', (e) => {
-            console.error('Unhandled promise rejection:', e.reason);
-        });
-
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 const navbarCollapse = document.querySelector('.navbar-collapse');

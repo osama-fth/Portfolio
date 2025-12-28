@@ -36,7 +36,6 @@ class Router {
 
     loadRoute(routeName, pushState = true) {
         if (!this.routes[routeName]) {
-            console.error(`Route "${routeName}" not found`);
             routeName = 'home';
         }
 
