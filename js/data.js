@@ -164,7 +164,7 @@ export const portfolioData = {
             id: 6,
             name: "Compilatore Ac",
             type: "university",
-            status: "In sviluppo",
+            status: "Completato",
             description: "Sviluppo di un semplice compilatore a discesa ricorsiva per un linguaggio proprietario. Realizzato manualmente in Java per approfondire le dinamiche di parsing di una grammatica definita ad hoc.",
             technologies: ["Java 21", "JUnit 5"],
             features: [
@@ -172,22 +172,22 @@ export const portfolioData = {
                 "Parser a discesa ricorsiva per la costruzione dell'AST",
                 "Analisi Semantica e Type Checking tramite Symbol Table",
             ],
-            "github": "https://github.com/osama-fth/UPO-FLT-Compilatore-Ac",
+            "github": "https://github.com/osama-fth/UPO-FLT-Compilatore-Ac-Dc",
             "year": "2025"
         },
         {
             id: 7,
             name: "EasyBook",
             type: "university",
-            status: "In sviluppo",
+            status: "Completato",
             description: "Progetto di gruppo per la progettazione e sviluppo di un sistema software complesso seguendo il ciclo di vita del software.",
             technologies: ["Java 21", "Javafx", "Junit", "UML", "Design Patterns"],
             features: [
                 "Ingegneria dei Requisiti e Modellazione UML (Casi d'uso, Classi, Sequenza)",
-                "Applicazione di Design Patterns (es. Singleton, Strategy, Observer)",
+                "Applicazione di Design Patterns (es. Singleton, DAO, MVC, POJO)",
                 "Interfaccia utente reattiva sviluppata in JavaFX con architettura FXML",
             ],
-            github: "https://github.com/osama-fth/UPO-Ing-Softaware-EasyBook",
+            github: "https://github.com/osama-fth/UPO-IngSoftware-EasyBook",
             year: "2025"
         },
 
