@@ -275,13 +275,12 @@ export const portfolioData = {
             type: "personal",
             status: "Completato",
             description: "Sistema IoT per il monitoraggio domestico basato sul protocollo MQTT. Sensori simulati pubblicano dati su topic MQTT verso un broker Eclipse Mosquitto; un controller sottoscrive i topic, applica logica di controllo sugli attuatori e persiste i dati su PostgreSQL. Una dashboard Streamlit interroga il DB in tempo reale. L'intera infrastruttura è orchestrata con Docker Compose.",
-            technologies: ["Mosquitto", "Python", "Streamlit", "PostgreSQL", "Docker Compose"],
+            technologies: ["MQTT", "Mosquitto", "Python", "Streamlit", "PostgreSQL", "Docker Compose"],
             features: [
-                "Comunicazione publish/subscribe MQTT con broker Eclipse Mosquitto autenticato",
-                "Sensori simulati: temperatura (topic home/sensors/temperature/#) e movimento (home/sensors/motion/#)",
-                "Controller MQTT: controllo termostato e gestione luci tramite attuatori (home/actuators/)",
-                "Persistenza degli eventi su PostgreSQL e dashboard Streamlit in tempo reale",
-                "Hot-reload in sviluppo con docker compose watch (sync file .py senza rebuild)"
+                "Comunicazione publish/subscribe MQTT",
+                "Sensori simulati: temperatura e movimento",
+                "Controller MQTT: controllo termostato e gestione luci",
+                "Persistenza degli eventi su PostgreSQL e dashboard Streamlit",
             ],
             github: "https://github.com/osama-fth/SmartHome",
             year: "2026"
