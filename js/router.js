@@ -5,6 +5,7 @@ class Router {
         this.routes = {
             'home': views.renderHome,
             'education': views.renderEducation,
+            'experiences': views.renderExperiences,
             'skills': views.renderSkills,
             'projects': views.renderProjects,
             'contacts': views.renderContacts

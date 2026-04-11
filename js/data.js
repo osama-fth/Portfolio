@@ -42,6 +42,23 @@ export const portfolioData = {
         }
     ],
 
+    // Esperienze
+    experiences: [
+        {
+            id: 1,
+            role: "Software Developer Intern",
+            company: "4 Zeta Srl",
+            location: "Novara, Italia",
+            period: "In Corso",
+            description: "Stage universitario focalizzato sull'applicazione pratica di concetti di ingegneria del software, programmazione e basi di dati in un contesto aziendale reale. L'esperienza comprende la partecipazione attiva al ciclo di vita del software, dalla progettazione tecnica di moduli all'implementazione tramite architetture moderne e framework core.",
+            highlights: [
+                "Sviluppo software e implementazione di funzionalità a partire da specifiche tecniche",
+                "Utilizzo di linguaggi coerenti con il percorso di studi e nuovi (PHP, TypeScript)",
+                "Debugging, risoluzione di inefficienze e utilizzo pratico di database e API REST"
+            ]
+        }
+    ],
+
     // Competenze tecniche
     skills: {
         acquired: [
@@ -284,6 +301,21 @@ export const portfolioData = {
             ],
             github: "https://github.com/osama-fth/SmartHome",
             year: "2026"
+        },
+        {
+            id: 14,
+            name: "Supabase Blog",
+            type: "personal",
+            status: "Completato",
+            description: "Blog/CMS minimale con post, commenti e gestione ruoli (admin, author, reader). Utilizza Supabase per l'autenticazione e il database, ed è strutturato per essere avviato in ambiente locale tramite Docker e Supabase CLI.",
+            technologies: ["Node.js", "Express.js", "Supabase", "BaaS", "Docker"],
+            features: [
+                "Gestione post e commenti con ruoli utente",
+                "Autenticazione e database tramite Supabase",
+                "Dashboard per amministratori e autori"
+            ],
+            github: "https://github.com/osama-fth/Supabase-Blog",
+            year: "2026"
         }
     ],
 
@@ -321,4 +353,4 @@ export const portfolioData = {
     ]
 };
 
-export const { profile, education, skills, projects, contacts, languages } = portfolioData;
+export const { profile, education, experiences, skills, projects, contacts, languages } = portfolioData;

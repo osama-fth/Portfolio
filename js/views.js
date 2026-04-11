@@ -1,4 +1,4 @@
-import { profile, education, skills, projects, contacts, languages } from './data.js';
+import { profile, education, experiences, skills, projects, contacts, languages } from './data.js';
 
 export function renderHome() {
     return `
@@ -69,6 +69,15 @@ export function renderHome() {
                                 <i class="bi bi-mortarboard-fill text-info fs-2 mb-2"></i>
                                 <h3 class="text-info mb-2">${education.length}</h3>
                                 <p class="text-secondary mb-0 small">Titoli di Studio</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-6 mt-4 mt-md-0 fade-in-item">
+                        <a href="#" data-route="experiences" class="text-decoration-none">
+                            <div class="card text-center p-4 h-100 stat-card">
+                                <i class="bi bi-briefcase-fill text-danger fs-2 mb-2"></i>
+                                <h3 class="text-danger mb-2">${experiences.length}</h3>
+                                <p class="text-secondary mb-0 small">Esperienze</p>
                             </div>
                         </a>
                     </div>
@@ -153,6 +162,85 @@ export function renderEducation() {
                 <div class="row">
                     <div class="col-lg-10 mx-auto">
                         ${educationItems}
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+export function renderExperiences() {
+    const experienceItems = experiences.map((exp, index) => `
+        <div class="col-12 mb-4 fade-in-item">
+            <div class="card education-card">
+                <div class="card-header bg-gradient">
+                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-wrapper me-3">
+                                <i class="bi bi-briefcase-fill text-primary" style="font-size: 2.5rem;"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-primary mb-1">${exp.role}</h3>
+                                <p class="text-secondary mb-0">
+                                    <i class="bi bi-calendar-event"></i> ${exp.period}
+                                </p>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary px-3 py-2">
+                            <i class="bi bi-building"></i> ${exp.company}
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="mb-4">
+                        <p class="text-secondary mb-0">
+                            <i class="bi bi-geo-alt"></i> ${exp.location}
+                        </p>
+                    </div>
+                    
+                    <p class="text-secondary mb-4 lead" style="line-height: 1.8;">${exp.description}</p>
+                    
+                    <hr class="my-4" style="opacity: 0.1;">
+                    
+                    <div class="highlights">
+                        <h6 class="text-info mb-3 d-flex align-items-center">
+                            <i class="bi bi-stars me-2"></i> 
+                            <span>Attività e Competenze</span>
+                        </h6>
+                        <div class="row g-3">
+                            ${exp.highlights.map(highlight => `
+                                <div class="col-md-6">
+                                    <div class="highlight-item p-3 rounded" style="background: #f8fafc; border-left: 3px solid var(--success-color);">
+                                        <div class="d-flex align-items-start">
+                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1" style="font-size: 1.1rem;"></i>
+                                            <span class="text-light" style="line-height: 1.6;">${highlight}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    return `
+        <div class="fade-in">
+            <div class="container py-5">
+                <div class="row mb-5">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 text-primary mb-3">
+                            <i class="bi bi-briefcase"></i> Esperienze
+                        </h1>
+                        <p class="lead text-secondary">Il mio percorso professionale e lavorativo</p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                        ${experienceItems}
                     </div>
                 </div>
             </div>
