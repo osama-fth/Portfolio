@@ -9,15 +9,15 @@ export function renderHome() {
                         <div class="text-center mb-5">
                             <h1 class="hero-title mb-3">${profile.name}</h1>
                             <h2 class="hero-subtitle mb-4">${profile.title}</h2>
-                            <p class="lead text-light mb-2" style="max-width: 700px; margin: 0 auto;">${profile.tagline}</p>
-                            <p class="text-secondary mb-4" style="max-width: 650px; margin: 0 auto;">${profile.bio}</p>
+                            <p class="lead text-body-color mb-2" style="max-width: 700px; margin: 0 auto;">${profile.tagline}</p>
+                            <p class="text-muted mb-4 hero-bio">${profile.bio}</p>
                             
                             <div class="d-flex justify-content-center align-items-center gap-3 mb-4 flex-wrap">
-                                <span class="badge bg-secondary-subtle text-light border border-secondary">
+                                <span class="badge bg-secondary-subtle">
                                     <i class="bi bi-geo-alt"></i> ${profile.location}
                                 </span>
                                 ${languages.map(lang => `
-                                    <span class="badge bg-info-subtle text-light border border-info">
+                                    <span class="badge bg-info-subtle">
                                         <i class="bi bi-translate"></i> ${lang.name}
                                     </span>
                                 `).join('')}
@@ -54,12 +54,12 @@ export function renderHome() {
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-3 col-6 fade-in-item">
-                        <a href="#" data-route="skills" class="text-decoration-none">
+                    <div class="col-md-3 col-6 mt-4 mt-md-0 fade-in-item">
+                        <a href="#" data-route="experiences" class="text-decoration-none">
                             <div class="card text-center p-4 h-100 stat-card">
-                                <i class="bi bi-hourglass-split text-warning fs-2 mb-2"></i>
-                                <h3 class="text-warning mb-2">${skills.learning.length}</h3>
-                                <p class="text-secondary mb-0 small">In Apprendimento</p>
+                                <i class="bi bi-briefcase-fill text-danger fs-2 mb-2"></i>
+                                <h3 class="text-danger mb-2">${experiences.length}</h3>
+                                <p class="text-secondary mb-0 small">Esperienze</p>
                             </div>
                         </a>
                     </div>
@@ -72,15 +72,6 @@ export function renderHome() {
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-3 col-6 mt-4 mt-md-0 fade-in-item">
-                        <a href="#" data-route="experiences" class="text-decoration-none">
-                            <div class="card text-center p-4 h-100 stat-card">
-                                <i class="bi bi-briefcase-fill text-danger fs-2 mb-2"></i>
-                                <h3 class="text-danger mb-2">${experiences.length}</h3>
-                                <p class="text-secondary mb-0 small">Esperienze</p>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -89,7 +80,7 @@ export function renderHome() {
 
 export function renderEducation() {
     const educationItems = education.map((edu, index) => `
-        <div class="col-12 mb-4 fade-in-item">
+        <div class="col-12 fade-in-item">
             <div class="card education-card">
                 <div class="card-header bg-gradient">
                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
@@ -112,7 +103,7 @@ export function renderEducation() {
                 
                 <div class="card-body p-4">
                     <div class="mb-4">
-                        <h5 class="text-light mb-2">
+                        <h5 class="text-heading mb-2">
                             <i class="bi bi-building text-info"></i> ${edu.institution}
                         </h5>
                         <p class="text-secondary mb-0">
@@ -135,7 +126,7 @@ export function renderEducation() {
                                     <div class="highlight-item p-3 rounded" style="background: #f8fafc; border-left: 3px solid var(--success-color);">
                                         <div class="d-flex align-items-start">
                                             <i class="bi bi-check-circle-fill text-success me-2 mt-1" style="font-size: 1.1rem;"></i>
-                                            <span class="text-light" style="line-height: 1.6;">${highlight}</span>
+                                            <span class="text-body-color" style="line-height: 1.6;">${highlight}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +150,7 @@ export function renderEducation() {
                     </div>
                 </div>
                 
-                <div class="row">
+                <div class="row g-4">
                     <div class="col-lg-10 mx-auto">
                         ${educationItems}
                     </div>
@@ -171,7 +162,7 @@ export function renderEducation() {
 
 export function renderExperiences() {
     const experienceItems = experiences.map((exp, index) => `
-        <div class="col-12 mb-4 fade-in-item">
+        <div class="col-12 fade-in-item">
             <div class="card education-card">
                 <div class="card-header bg-gradient">
                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
@@ -214,7 +205,7 @@ export function renderExperiences() {
                                     <div class="highlight-item p-3 rounded" style="background: #f8fafc; border-left: 3px solid var(--success-color);">
                                         <div class="d-flex align-items-start">
                                             <i class="bi bi-check-circle-fill text-success me-2 mt-1" style="font-size: 1.1rem;"></i>
-                                            <span class="text-light" style="line-height: 1.6;">${highlight}</span>
+                                            <span class="text-body-color" style="line-height: 1.6;">${highlight}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +229,7 @@ export function renderExperiences() {
                     </div>
                 </div>
                 
-                <div class="row">
+                <div class="row g-4">
                     <div class="col-lg-10 mx-auto">
                         ${experienceItems}
                     </div>
@@ -288,7 +279,7 @@ export function renderSkills() {
                     </div>
                 </div>
                 
-                <div class="row mb-5">
+                <div class="row mb-3">
                     <div class="col-lg-10 mx-auto">
                         <div class="card fade-in-item">
                             <div class="card-header">
@@ -314,7 +305,7 @@ export function renderProjects() {
     const personalProjects = projects.filter(p => p.type === 'personal');
 
     const renderProjectCard = (project) => `
-        <div class="col-lg-6 mb-4 fade-in-item">
+        <div class="col-lg-6 fade-in-item">
             <div class="card project-card h-100">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="mb-0 text-primary">
@@ -415,7 +406,7 @@ export function renderProjects() {
                                 <div id="universityProjects" class="accordion-collapse collapse show" 
                                      data-bs-parent="#projectsAccordion">
                                     <div class="accordion-body pt-4">
-                                        <div class="row">
+                                        <div class="row g-3">
                                             ${universityProjects.map(renderProjectCard).join('')}
                                         </div>
                                     </div>
@@ -439,7 +430,7 @@ export function renderProjects() {
                                 <div id="personalProjects" class="accordion-collapse collapse" 
                                      data-bs-parent="#projectsAccordion">
                                     <div class="accordion-body pt-4">
-                                        <div class="row">
+                                        <div class="row g-3">
                                             ${personalProjects.map(renderProjectCard).join('')}
                                         </div>
                                     </div>
@@ -463,22 +454,22 @@ export function renderContacts() {
                             <i class="bi bi-chat-dots"></i> Mettiamoci in Contatto
                         </h1>
                         <p class="lead text-secondary mb-4">Interessato a collaborare o semplicemente fare una chiacchierata?</p>
-                        <p class="text-light">Sono sempre disponibile per nuove opportunità, progetti interessanti o anche solo per scambiare idee nel mondo tech.</p>
+                        <p class="text-body-color">Sono sempre disponibile per nuove opportunità, progetti interessanti o anche solo per scambiare idee nel mondo tech.</p>
                     </div>
                 </div>
                 
                 <div class="row ">
                     <div class="col-lg-10 mx-auto">
-                        <div class="row mb-5 align-items-center justify-content-center">
+                        <div class="row g-4 mb-5 align-items-center justify-content-center">
                             ${contacts.social.map((social, index) => `
                                 <div class="col-md-6 fade-in-item">
                                     <a href="${social.url}" target="_blank" class="text-decoration-none">
                                         <div class="card text-center h-100 contact-card p-4">
                                             <div class="card-body">
-                                                <i class="bi bi-${social.icon} ${social.color}" style="font-size: 4rem;"></i>
-                                                <h4 class="mt-4 mb-2 text-light">${social.platform}</h4>
-                                                <p class="text-secondary mb-3">@${social.platform === 'GitHub' ? contacts.github.username : contacts.linkedin.username}</p>
-                                                <span class="badge bg-primary-subtle text-primary border border-primary">
+                                                <i class="bi bi-${social.icon} ${social.color} contact-icon"></i>
+                                                <h4 class="mb-2 text-heading">${social.platform}</h4>
+                                                <p class="text-muted-custom mb-3">@${social.platform === 'GitHub' ? contacts.github.username : contacts.linkedin.username}</p>
+                                                <span class="badge bg-primary-subtle">
                                                     Vai al profilo <i class="bi bi-arrow-right"></i>
                                                 </span>
                                             </div>
