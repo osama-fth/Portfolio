@@ -88,7 +88,8 @@ export const portfolioData = {
             { name: "DevSecOps", category: "practice", icon: "shield-check" },
             { name: "CI/CD Pipelines", category: "devops", icon: "arrow-repeat" },
             { name: "Network Security", category: "security", icon: "router" },
-            { name: "Cloud Basics", category: "cloud", icon: "cloud" }
+            { name: "Cloud Basics", category: "cloud", icon: "cloud" },
+            { name: "Ai Basics", category: "ai", icon: "robot" }
         ]
     },
 
@@ -207,12 +208,36 @@ export const portfolioData = {
             github: "https://github.com/osama-fth/UPO-IngSoftware-EasyBook",
             year: "2025"
         },
-
+        {
+            "id": 8,
+            "name": "AiTravelPlanner",
+            "type": "university",
+            "status": "Completato",
+            "description": "Sistema multi-agente avanzato per la pianificazione di viaggi end-to-end. Unisce la ricerca live di dati reali (voli, hotel, meteo) a un robusto sistema RAG basato su documenti ministeriali ufficiali per un'esperienza sicura e affidabile.",
+            "technologies": [
+                "Python",
+                "Agno Framework",
+                "FastAPI",
+                "SvelteKit",
+                "LanceDB",
+                "SQLite",
+                "Groq",
+                "Google Gemini"
+            ],
+            "features": [
+                "Architettura Multi-Agente orchestrata",
+                "Sistema RAG con database vettoriale serverless LanceDB e pipeline di ingestion per PDF",
+                "Protezione del sistema tramite Guardrails per prevenire fughe di dati PII e Prompt Injection in multilingua",
+                "Ricerca live integrata per voli (CLI custom), hotel (DuckDuckGo) e meteo (Open-Meteo dinamico API forecast/climate)"
+            ],
+            "github": "https://github.com/osama-fth/UPO-AppIntelligenti-AiTravelPlanner",
+            "year": "2026"
+        },
         // ==========================
         // PROGETTI PERSONALI
         // ==========================
         {
-            id: 8,
+            id: 9,
             name: "Simple CI/CD",
             type: "personal",
             status: "Completato",
@@ -228,7 +253,7 @@ export const portfolioData = {
             year: "2025"
         },
         {
-            id: 9,
+            id: 10,
             name: "CrypTool",
             type: "personal",
             status: "Completato",
@@ -244,7 +269,7 @@ export const portfolioData = {
             year: "2025"
         },
         {
-            id: 10,
+            id: 11,
             name: "Generatore Codice Fiscale",
             type: "personal",
             status: "Completato",
@@ -259,7 +284,7 @@ export const portfolioData = {
             year: "2025"
         },
         {
-            id: 11,
+            id: 12,
             name: "Go Port Scanner",
             type: "personal",
             status: "Completato",
@@ -270,7 +295,7 @@ export const portfolioData = {
             year: "2025"
         },
         {
-            id: 12,
+            id: 13,
             name: "LoadBalancer con Rate Limiting",
             type: "personal",
             status: "Completato",
@@ -287,7 +312,7 @@ export const portfolioData = {
             year: "2025"
         },
         {
-            id: 13,
+            id: 14,
             name: "SmartHome",
             type: "personal",
             status: "Completato",
@@ -303,7 +328,7 @@ export const portfolioData = {
             year: "2026"
         },
         {
-            id: 14,
+            id: 15,
             name: "Supabase Blog",
             type: "personal",
             status: "Completato",
