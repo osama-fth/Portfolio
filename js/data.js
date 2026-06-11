@@ -49,12 +49,13 @@ export const portfolioData = {
             role: "Software Developer Intern",
             company: "4 Zeta Srl",
             location: "Novara, Italia",
-            period: "In Corso",
-            description: "Stage universitario focalizzato sull'applicazione pratica di concetti di ingegneria del software, programmazione e basi di dati in un contesto aziendale reale. L'esperienza comprende la partecipazione attiva al ciclo di vita del software, dalla progettazione tecnica di moduli all'implementazione tramite architetture moderne e framework core.",
+            period: "Marzo 2026 - Giugno 2026",
+            description: "Manutenzione evolutiva e ottimizzazione di una piattaforma ERP aziendale basata su architettura PHP MVC, database relazionali e integrazioni REST API / Webhooks.",
             highlights: [
-                "Sviluppo software e implementazione di funzionalità a partire da specifiche tecniche",
-                "Utilizzo di linguaggi coerenti con il percorso di studi e nuovi (PHP, TypeScript)",
-                "Debugging, risoluzione di inefficienze e utilizzo pratico di database e API REST"
+                "Integrazioni e Sicurezza: Sviluppo di moduli per la gestione di pagamenti elettronici ed esportazione dati strutturati (JSON/XML) verso sistemi Enterprise esterni.",
+                "Backend & Ottimizzazione: Debugging del software core e ottimizzazione dello script di generazione PDF per la riduzione dei tempi di elaborazione e del carico server.",
+                "Frontend Dinamico: Implementazione di interfacce utente dinamiche, form auto-compilanti con gestione dello stato e routing client-side tramite parametri URL.",
+                "Version Control & Workflow: Gestione del codice tramite Git, partecipazione attiva a code review interne e allineamento con le specifiche tecniche del team di sviluppo."
             ]
         }
     ],
