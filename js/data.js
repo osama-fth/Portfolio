@@ -2,10 +2,10 @@ export const portfolioData = {
     // Profilo personale
     profile: {
         name: "Foutih Osama",
-        title: "Studente di Informatica & Software Developer",
-        tagline: "Appassionato di automazione, DevOps e Sicurezza Informatica.",
-        bio: `Studente universitario con una forte passione per lo sviluppo software, 
-        l'automazione dei processi e la sicurezza informatica.`,
+        title: "Studente di Informatica | Orientato al DevSecOps",
+        tagline: "Pipeline automatizzate, container e sicurezza applicativa.",
+        bio: `Studente di Informatica presso l'Università del Piemonte Orientale, in fase di orientamento verso il mondo DevSecOps.
+        Mi occupo di costruire pipeline di sviluppo sicure e automatizzate: dalla containerizzazione con Docker alla scansione delle vulnerabilità in CI/CD, fino ai principi di networking e crittografia che stanno alla base della sicurezza dei sistemi.`,
         location: "Piemonte, Italia",
     },
 
@@ -50,12 +50,12 @@ export const portfolioData = {
             company: "4 Zeta Srl",
             location: "Novara, Italia",
             period: "Marzo 2026 - Giugno 2026",
-            description: "Manutenzione evolutiva e ottimizzazione di una piattaforma ERP aziendale basata su architettura PHP MVC, database relazionali e integrazioni REST API / Webhooks.",
+            description: "Contributo allo sviluppo e alla manutenzione di una piattaforma ERP aziendale basata su architettura PHP MVC, database relazionali e integrazioni REST API / Webhooks.",
             highlights: [
-                "Integrazioni e Sicurezza: Sviluppo di moduli per la gestione di pagamenti elettronici ed esportazione dati strutturati (JSON/XML) verso sistemi Enterprise esterni.",
-                "Backend & Ottimizzazione: Debugging del software core e ottimizzazione dello script di generazione PDF per la riduzione dei tempi di elaborazione e del carico server.",
-                "Frontend Dinamico: Implementazione di interfacce utente dinamiche, form auto-compilanti con gestione dello stato e routing client-side tramite parametri URL.",
-                "Version Control & Workflow: Gestione del codice tramite Git, partecipazione attiva a code review interne e allineamento con le specifiche tecniche del team di sviluppo."
+                "Integrazioni: Sviluppo di moduli per la gestione di pagamenti elettronici ed esportazione dati strutturati (JSON/XML) verso sistemi Enterprise esterni.",
+                "Backend: Debugging del software core e ottimizzazione dello script di generazione PDF per la riduzione dei tempi di elaborazione e del carico server.",
+                "Frontend: Implementazione di interfacce utente dinamiche, form auto-compilanti con gestione dello stato e routing client-side tramite parametri URL.",
+                "Workflow: Gestione del codice tramite Git, partecipazione attiva a code review interne e allineamento con le specifiche tecniche del team di sviluppo."
             ]
         }
     ],
@@ -374,7 +374,7 @@ export const portfolioData = {
     languages: [
         { name: "Italiano", level: "Madrelingua" },
         { name: "Inglese", level: "Intermedio" },
-        { name: "Arabo", level: "Intermediox" },
+        { name: "Arabo", level: "Intermedio" },
 
     ]
 };
