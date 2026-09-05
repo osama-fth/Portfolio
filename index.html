@@ -4,74 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foutih Osama - Portfolio</title>
-    <meta name="description" content="Portfolio di Foutih Osama – Sviluppatore Web Junior con competenze fullstack, progetti universitari e personali.">
+    <title>Osama Foutih | DevSecOps & Sviluppo Software</title>
+    <meta name="description"
+        content="Portfolio di Osama Foutih – Aspirante Ingegnere DevSecOps. Pipeline CI/CD, Docker, scansione di vulnerabilità con Trivy, Go, Microservizi e sicurezza applicativa.">
+    <meta name="author" content="Osama Foutih">
+
+    <!-- Metadati Open Graph per condivisione -->
+    <meta property="og:title" content="Osama Foutih | DevSecOps & Sviluppo Software">
+    <meta property="og:description"
+        content="Laureato in Informatica (UPO), Laureando Magistrale LM-66 in Sicurezza Informatica (UniMi). Docker · CI/CD · Automazione · Trivy · Go · Microservizi.">
+    <meta property="og:type" content="website">
+
+    <!-- Dipendenze CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Tipografia: Inter per la lettura + JetBrains Mono per riferimenti tecnici -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Foglio di stile personalizzato -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- Barra di navigazione fissa (Recruiter Friendly) -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container-fluid px-3 px-lg-4">
-            <a class="navbar-brand font-monospace fw-bold" href="#" data-route="home" id="nav-brand">
-                <i class="bi bi-code-slash"></i> Foutih Osama
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#summary" id="nav-brand">
+                <span class="brand-terminal-glyph"><i class="bi bi-terminal"></i></span>
+                <span class="brand-name">Osama Foutih</span>
+                <span class="brand-role-chip font-mono">DevSecOps</span>
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="nav-toggler">
-                <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Apri menu di navigazione" id="nav-toggler">
+                <i class="bi bi-list"></i>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-1">
+                <ul class="navbar-nav mx-auto gap-1">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" data-route="home" id="nav-home">
-                            <i class="bi bi-house-fill"></i> <span>Home</span>
+                        <a class="nav-link active" href="#featured-projects">
+                            <span>Progetti</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-route="education" id="nav-education">
-                            <i class="bi bi-mortarboard-fill"></i> <span>Formazione</span>
+                        <a class="nav-link" href="#experience">
+                            <span>Esperienza</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-route="experiences" id="nav-experiences">
-                            <i class="bi bi-briefcase-fill"></i> <span>Esperienze</span>
+                        <a class="nav-link" href="#skills">
+                            <span>Competenze</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-route="skills" id="nav-skills">
-                            <i class="bi bi-gear-fill"></i> <span>Skills</span>
+                        <a class="nav-link" href="#education">
+                            <span>Formazione</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-route="projects" id="nav-projects">
-                            <i class="bi bi-folder-fill"></i> <span>Progetti</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" data-route="contacts" id="nav-contacts">
-                            <i class="bi bi-envelope-fill"></i> <span>Contatti</span>
+                        <a class="nav-link" href="#contact">
+                            <span>Contatti</span>
                         </a>
                     </li>
                 </ul>
+
+                <!-- Azioni rapide per il recruiter nella barra in alto -->
+                <div class="nav-recruiter-actions d-none d-lg-flex align-items-center gap-2">
+                    <a href="mailto:foutihosama@gmail.com" class="nav-action-link" title="Invia una mail diretta">
+                        <i class="bi bi-envelope"></i> foutihosama@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/osama-foutih" target="_blank" rel="noopener noreferrer"
+                        class="nav-icon-btn" title="Profilo LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/osama-fth" target="_blank" rel="noopener noreferrer"
+                        class="nav-icon-btn" title="Profilo GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main id="app" class="container-fluid px-0 mt-5 pt-3"></main>
+    <!-- Contenitore principale dell'applicazione -->
+    <main id="app"></main>
 
-    <footer id="mainFooter">
-        <div class="container text-center">
-            <p class="mb-0 small">
-                &copy; <span id="footer-year"></span> Foutih Osama. All rights reserved.
-            </p>
+    <!-- Piè di pagina -->
+    <footer id="mainFooter" class="footer-tech">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 py-4">
+                <div class="footer-left">
+                    <p class="mb-0 text-muted-tech small">
+                        &copy; <span id="footer-year"></span> Osama Foutih. Novara, Italia.
+                    </p>
+                </div>
+                <div class="footer-links font-mono small d-flex gap-3">
+                    <a href="https://github.com/osama-fth" target="_blank"
+                        rel="noopener noreferrer">github/osama-fth</a>
+                    <span class="text-separator">•</span>
+                    <a href="https://www.linkedin.com/in/osama-foutih" target="_blank"
+                        rel="noopener noreferrer">linkedin/osama-foutih</a>
+                    <span class="text-separator">•</span>
+                    <a href="mailto:foutihosama@gmail.com">foutihosama@gmail.com</a>
+                </div>
+            </div>
         </div>
     </footer>
-    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </body>

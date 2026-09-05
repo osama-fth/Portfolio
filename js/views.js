@@ -1,486 +1,357 @@
-import { profile, education, experiences, skills, projects, contacts, languages } from './data.js';
+import { profile, experiences, skillsGrouped, education, languages, projects } from './data.js';
 
-export function renderHome() {
+/**
+ * Interfaccia pulita, autentica e diretta per recruiter e hiring manager.
+ * Eliminati i cliché da template AI (nessun effetto neon, niente badge ovunque, struttura editoriale solida).
+ */
+export function renderPortfolioApp() {
     return `
-        <div class="hero-section fade-in">
+        <!-- Sezione Introduttiva (Hero) -->
+        <section id="summary" class="section-hero">
             <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-10 col-xl-9">
-                        <div class="text-center mb-5">
-                            <h1 class="hero-title mb-3">${profile.name}</h1>
-                            <h2 class="hero-subtitle mb-4">${profile.title}</h2>
-                            <p class="lead text-body-color mb-2" style="max-width: 700px; margin: 0 auto;">${profile.tagline}</p>
-                            <p class="text-muted mb-4 hero-bio">${profile.bio}</p>
-                            
-                            <div class="d-flex justify-content-center align-items-center gap-3 mb-4 flex-wrap">
-                                <span class="badge bg-secondary-subtle">
-                                    <i class="bi bi-geo-alt"></i> ${profile.location}
-                                </span>
-                                ${languages.map(lang => `
-                                    <span class="badge bg-info-subtle">
-                                        <i class="bi bi-translate"></i> ${lang.name}
-                                    </span>
+                <div class="hero-content">
+                    <div class="hero-status-row">
+                        <span class="status-indicator">
+                            <span class="status-dot"></span>
+                            ${profile.availability}
+                        </span>
+                        <span class="hero-location">
+                            <i class="bi bi-geo-alt"></i> ${profile.location}
+                        </span>
+                    </div>
+
+                    <h1 class="hero-title">${profile.name}</h1>
+                    <p class="hero-subtitle">${profile.role}</p>
+                    <p class="hero-academic-note">${profile.subtitle}</p>
+
+                    <div class="hero-bio-container">
+                        <p class="hero-bio-text">${profile.summary}</p>
+                    </div>
+
+                    <!-- Contatti e azioni immediate per il recruiter -->
+                    <div class="hero-actions-row">
+                        <a href="mailto:${profile.email}" class="btn-action primary">
+                            <i class="bi bi-envelope"></i>
+                            <span>${profile.email}</span>
+                        </a>
+                        <button type="button" class="btn-action secondary" id="copy-email-btn" data-email="${profile.email}">
+                            <i class="bi bi-clipboard"></i>
+                            <span id="copy-btn-label">Copia Email</span>
+                        </button>
+                        <a href="${profile.linkedin}" target="_blank" rel="noopener noreferrer" class="btn-action ghost">
+                            <i class="bi bi-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="${profile.github}" target="_blank" rel="noopener noreferrer" class="btn-action ghost">
+                            <i class="bi bi-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Aree di competenza principali -->
+                <div class="focus-areas-grid">
+                    ${profile.corePillars.map(pillar => `
+                        <div class="focus-card">
+                            <div class="focus-title">${pillar.label}</div>
+                            <div class="focus-desc">${pillar.value}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- Progetti di Punta citati nel CV -->
+        <section id="featured-projects" class="section-padding section-alt">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Progetti in evidenza</h2>
+                    <p class="section-description">
+                        I progetti principali indicati nel curriculum: pipeline CI/CD con analisi delle vulnerabilità, strumenti di rete concorrenti in Go e architetture a microservizi.
+                    </p>
+                </div>
+
+                <div class="featured-list">
+                    ${projects.filter(p => p.featured).map(project => renderFeaturedProjectItem(project)).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- Esperienza Lavorativa -->
+        <section id="experience" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Esperienza lavorativa</h2>
+                    <p class="section-description">
+                        Sviluppo software e ottimizzazione di processi su piattaforme aziendali.
+                    </p>
+                </div>
+
+                <div class="experience-wrapper">
+                    ${experiences.map(exp => `
+                        <div class="experience-entry">
+                            <div class="exp-top-bar">
+                                <div>
+                                    <h3 class="exp-title">${exp.role}</h3>
+                                    <div class="exp-company-line">
+                                        <span class="company-name">${exp.company}</span>
+                                        <span class="meta-dot">/</span>
+                                        <span>${exp.location}</span>
+                                    </div>
+                                </div>
+                                <div class="exp-dates">
+                                    <span>${exp.period}</span>
+                                    <span class="duration-tag">${exp.duration}</span>
+                                </div>
+                            </div>
+
+                            <p class="exp-summary">${exp.overview}</p>
+
+                            <ul class="exp-bullets">
+                                ${exp.bullets.map(bullet => `
+                                    <li>${bullet}</li>
                                 `).join('')}
-                            </div>
-                            
-                            <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
-                                <a href="#" data-route="projects" class="btn btn-primary btn-lg">
-                                    <i class="bi bi-folder"></i> Esplora Progetti
-                                </a>
-                                <a href="#" data-route="contacts" class="btn btn-outline-primary btn-lg">
-                                    <i class="bi bi-envelope"></i> Contattami
-                                </a>
+                            </ul>
+
+                            <div class="exp-tech-row">
+                                <span class="tech-row-label">Stack:</span>
+                                <div class="tech-tags">
+                                    ${exp.stack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="row mt-5 pt-4 align-items-center justify-content-center">
-                    <div class="col-md-3 col-6 fade-in-item">
-                        <a href="#" data-route="skills" class="text-decoration-none">
-                            <div class="card text-center p-4 h-100 stat-card">
-                                <i class="bi bi-check-circle-fill text-primary fs-2 mb-2"></i>
-                                <h3 class="text-primary mb-2">${skills.acquired.length}</h3>
-                                <p class="text-secondary mb-0 small">Skills Acquisite</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-6 fade-in-item">
-                        <a href="#" data-route="projects" class="text-decoration-none">
-                            <div class="card text-center p-4 h-100 stat-card">
-                                <i class="bi bi-folder-fill text-success fs-2 mb-2"></i>
-                                <h3 class="text-success mb-2">${projects.length}</h3>
-                                <p class="text-secondary mb-0 small">Progetti Totali</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-6 mt-4 mt-md-0 fade-in-item">
-                        <a href="#" data-route="experiences" class="text-decoration-none">
-                            <div class="card text-center p-4 h-100 stat-card">
-                                <i class="bi bi-briefcase-fill text-danger fs-2 mb-2"></i>
-                                <h3 class="text-danger mb-2">${experiences.length}</h3>
-                                <p class="text-secondary mb-0 small">Esperienze</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-6 fade-in-item">
-                        <a href="#" data-route="education" class="text-decoration-none">
-                            <div class="card text-center p-4 h-100 stat-card">
-                                <i class="bi bi-mortarboard-fill text-info fs-2 mb-2"></i>
-                                <h3 class="text-info mb-2">${education.length}</h3>
-                                <p class="text-secondary mb-0 small">Titoli di Studio</p>
-                            </div>
-                        </a>
-                    </div>
+                    `).join('')}
                 </div>
             </div>
-        </div>
-    `;
-}
+        </section>
 
-export function renderEducation() {
-    const educationItems = education.map((edu, index) => `
-        <div class="col-12 fade-in-item">
-            <div class="card education-card">
-                <div class="card-header bg-gradient">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-wrapper me-3">
-                                <i class="bi bi-mortarboard-fill text-primary" style="font-size: 2.5rem;"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-primary mb-1">${edu.degree}</h3>
-                                <p class="text-secondary mb-0">
-                                    <i class="bi bi-calendar-event"></i> ${edu.period}
-                                </p>
-                            </div>
-                        </div>
-                        <span class="badge bg-primary px-3 py-2">
-                            <i class="bi bi-award"></i> ${index === 0 ? 'In Corso' : 'Conseguito'}
-                        </span>
-                    </div>
+        <!-- Catalogo Completo dei Progetti con Filtri -->
+        <section id="all-projects" class="section-padding section-alt">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Tutti i progetti</h2>
+                    <p class="section-description">
+                        L'archivio completo dei progetti personali e universitari. Filtra per area tematica:
+                    </p>
                 </div>
-                
-                <div class="card-body p-4">
-                    <div class="mb-4">
-                        <h5 class="text-heading mb-2">
-                            <i class="bi bi-building text-info"></i> ${edu.institution}
-                        </h5>
-                        <p class="text-secondary mb-0">
-                            <i class="bi bi-geo-alt"></i> ${edu.location}
-                        </p>
-                    </div>
-                    
-                    <p class="text-secondary mb-4 lead" style="line-height: 1.8;">${edu.description}</p>
-                    
-                    <hr class="my-4" style="opacity: 0.1;">
-                    
-                    <div class="highlights">
-                        <h6 class="text-info mb-3 d-flex align-items-center">
-                            <i class="bi bi-stars me-2"></i> 
-                            <span>Competenze Chiave</span>
-                        </h6>
-                        <div class="row g-3">
-                            ${edu.highlights.map(highlight => `
-                                <div class="col-md-6">
-                                    <div class="highlight-item p-3 rounded" style="background: #f8fafc; border-left: 3px solid var(--success-color);">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1" style="font-size: 1.1rem;"></i>
-                                            <span class="text-body-color" style="line-height: 1.6;">${highlight}</span>
-                                        </div>
+
+                <!-- Filtri di categoria -->
+                <div class="filter-bar">
+                    <button type="button" class="filter-tab active" data-filter="all">
+                        Tutti <span class="filter-count">${projects.length}</span>
+                    </button>
+                    <button type="button" class="filter-tab" data-filter="devsecops">
+                        DevSecOps & Sicurezza <span class="filter-count">${projects.filter(p => p.category === 'devsecops').length}</span>
+                    </button>
+                    <button type="button" class="filter-tab" data-filter="systems">
+                        Reti & Sistemi <span class="filter-count">${projects.filter(p => p.category === 'systems').length}</span>
+                    </button>
+                    <button type="button" class="filter-tab" data-filter="fullstack">
+                        Web & AI <span class="filter-count">${projects.filter(p => p.category === 'fullstack').length}</span>
+                    </button>
+                </div>
+
+                <!-- Griglia progetti -->
+                <div class="catalog-grid" id="projects-grid">
+                    ${projects.map(project => renderCatalogCard(project)).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- Competenze Tecniche -->
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Competenze tecniche</h2>
+                    <p class="section-description">
+                        Linguaggi, ambienti e strumenti con cui lavoro regolarmente.
+                    </p>
+                </div>
+
+                <div class="skills-layout">
+                    ${Object.entries(skillsGrouped).map(([key, group]) => `
+                        <div class="skill-category-block">
+                            <h3 class="skill-category-title">${group.title}</h3>
+                            <ul class="skill-simple-list">
+                                ${group.skills.map(skill => `
+                                    <li>${skill}</li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </section>
+
+        <!-- Formazione e Lingue -->
+        <section id="education" class="section-padding section-alt">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Formazione -->
+                    <div class="col-lg-7">
+                        <div class="section-heading mb-4">
+                            <h2 class="section-title">Percorso formativo</h2>
+                        </div>
+
+                        <div class="edu-entries-list">
+                            ${education.map(edu => `
+                                <div class="edu-entry">
+                                    <div class="edu-header">
+                                        <h3 class="edu-title">${edu.degree}</h3>
+                                        <span class="edu-status ${edu.statusBadge}">${edu.status}</span>
                                     </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    return `
-        <div class="fade-in">
-            <div class="container py-5">
-                <div class="row mb-5">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h1 class="display-4 text-primary mb-3">
-                            <i class="bi bi-mortarboard"></i> Formazione
-                        </h1>
-                        <p class="lead text-secondary">Il percorso accademico che mi ha formato</p>
-                    </div>
-                </div>
-                
-                <div class="row g-4">
-                    <div class="col-lg-10 mx-auto">
-                        ${educationItems}
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-export function renderExperiences() {
-    const experienceItems = experiences.map((exp, index) => `
-        <div class="col-12 fade-in-item">
-            <div class="card education-card">
-                <div class="card-header bg-gradient">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-wrapper me-3">
-                                <i class="bi bi-briefcase-fill text-primary" style="font-size: 2.5rem;"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-primary mb-1">${exp.role}</h3>
-                                <p class="text-secondary mb-0">
-                                    <i class="bi bi-calendar-event"></i> ${exp.period}
-                                </p>
-                            </div>
-                        </div>
-                        <span class="badge bg-primary px-3 py-2">
-                            <i class="bi bi-building"></i> ${exp.company}
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-body p-4">
-                    <div class="mb-4">
-                        <p class="text-secondary mb-0">
-                            <i class="bi bi-geo-alt"></i> ${exp.location}
-                        </p>
-                    </div>
-                    
-                    <p class="text-secondary mb-4 lead" style="line-height: 1.8;">${exp.description}</p>
-                    
-                    <hr class="my-4" style="opacity: 0.1;">
-                    
-                    <div class="highlights">
-                        <h6 class="text-info mb-3 d-flex align-items-center">
-                            <i class="bi bi-stars me-2"></i> 
-                            <span>Attività e Competenze</span>
-                        </h6>
-                        <div class="row g-3">
-                            ${exp.highlights.map(highlight => `
-                                <div class="col-md-6">
-                                    <div class="highlight-item p-3 rounded" style="background: #f8fafc; border-left: 3px solid var(--success-color);">
-                                        <div class="d-flex align-items-start">
-                                            <i class="bi bi-check-circle-fill text-success me-2 mt-1" style="font-size: 1.1rem;"></i>
-                                            <span class="text-body-color" style="line-height: 1.6;">${highlight}</span>
-                                        </div>
+                                    <div class="edu-meta-line">
+                                        <span class="institution-name">${edu.institution}</span>
+                                        <span class="meta-dot">/</span>
+                                        <span class="edu-years">${edu.period}</span>
+                                        <span class="meta-dot">/</span>
+                                        <span>${edu.location}</span>
                                     </div>
+                                    <p class="edu-desc">${edu.description}</p>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
 
-    return `
-        <div class="fade-in">
-            <div class="container py-5">
-                <div class="row mb-5">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h1 class="display-4 text-primary mb-3">
-                            <i class="bi bi-briefcase"></i> Esperienze
-                        </h1>
-                        <p class="lead text-secondary">Il mio percorso professionale e lavorativo</p>
-                    </div>
-                </div>
-                
-                <div class="row g-4">
-                    <div class="col-lg-10 mx-auto">
-                        ${experienceItems}
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-export function renderSkills() {
-    const acquiredSkills = skills.acquired.map(skill => `
-        <span class="badge bg-success skill-item">
-            <i class="bi bi-${skill.icon}"></i> ${skill.name}
-        </span>
-    `).join('');
-
-    const learningSkills = skills.learning.map(skill => `
-        <span class="badge bg-warning text-dark skill-item">
-            <i class="bi bi-${skill.icon}"></i> ${skill.name}
-        </span>
-    `).join('');
-
-    return `
-        <div class="fade-in">
-            <div class="container py-4">
-                <div class="text-center mb-5">
-                    <h1 class="text-primary mb-3">
-                        <i class="bi bi-gear-fill"></i> Skills
-                    </h1>
-                    <p class="lead text-secondary">Le mie competenze tecniche</p>
-                </div>
-                
-                <div class="row mb-5">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="card fade-in-item">
-                            <div class="card-header">
-                                <h3 class="mb-0 text-success">
-                                    <i class="bi bi-check-circle-fill"></i> Competenze Acquisite
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="skills-container">
-                                    ${acquiredSkills}
-                                </div>
-                            </div>
+                    <!-- Lingue e disponibilità -->
+                    <div class="col-lg-5">
+                        <div class="section-heading mb-4">
+                            <h2 class="section-title">Lingue</h2>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="card fade-in-item">
-                            <div class="card-header">
-                                <h3 class="mb-0 text-warning">
-                                    <i class="bi bi-hourglass-split"></i> In Apprendimento
-                                </h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="skills-container">
-                                    ${learningSkills}
+
+                        <div class="lang-card-list">
+                            ${languages.map(lang => `
+                                <div class="lang-row">
+                                    <div>
+                                        <span class="lang-title">${lang.name}</span>
+                                        <span class="lang-level-sub">${lang.level}</span>
+                                    </div>
+                                    <span class="lang-badge">${lang.badge}</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-export function renderProjects() {
-    const universityProjects = projects.filter(p => p.type === 'university');
-    const personalProjects = projects.filter(p => p.type === 'personal');
-
-    const renderProjectCard = (project) => `
-        <div class="col-lg-6 fade-in-item">
-            <div class="card project-card h-100">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0 text-primary">
-                        <i class="bi bi-folder-fill"></i> ${project.name}
-                    </h4>
-                    <span class="badge ${project.status === 'Completato' ? 'bg-success' : 'bg-warning'}">
-                        ${project.status}
-                    </span>
-                </div>
-                <div class="card-body">
-                    <p class="text-secondary mb-3" style="line-height: 1.7;">${project.description}</p>
-                    
-                    <div class="mb-3">
-                        <h6 class="text-primary mb-2">
-                            <i class="bi bi-code-slash"></i> Tecnologie:
-                        </h6>
-                        <div class="d-flex flex-wrap gap-2">
-                            ${project.technologies.map(tech => `
-                                <span class="badge bg-secondary">${tech}</span>
                             `).join('')}
                         </div>
+
+                        <div class="location-pref-box mt-4">
+                            <h4 class="pref-title">Disponibilità lavorativa</h4>
+                            <p class="pref-text">
+                                Residenza a Novara. Aperto a posizioni in presenza o ibride nelle province di Novara, Milano e Torino, oppure in modalità full remote nel settore DevSecOps, Cloud & Sviluppo Backend.
+                            </p>
+                        </div>
                     </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="text-primary mb-2">
-                            <i class="bi bi-list-check"></i> Features:
-                        </h6>
-                        <ul class="small">
-                            ${project.features.map(feature => `
-                                <li class="text-secondary">${feature}</li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                    
-                    <div class="d-flex justify-content-between align-items-center mt-3">
-                        <span class="text-secondary small">
-                            <i class="bi bi-calendar"></i> ${project.year}
-                        </span>
-                        <div>
-                            ${project.github ? `
-                                <a href="${project.github}" target="_blank" class="btn btn-sm btn-outline-primary me-1">
-                                    <i class="bi bi-github"></i> Code
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Contatto Diretto -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div class="contact-box">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h2 class="contact-title">Mettiamoci in contatto</h2>
+                            <p class="contact-text">
+                                Se cerchi una figura junior/entry per posizioni in ambito DevSecOps, automazione CI/CD o sviluppo backend, scrivimi per un colloquio conoscitivo.
+                            </p>
+                            <div class="contact-info-strip">
+                                <span><i class="bi bi-envelope"></i> ${profile.email}</span>
+                                <span class="meta-dot">•</span>
+                                <span><i class="bi bi-geo-alt"></i> ${profile.location}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                            <div class="d-flex flex-column gap-2 align-items-lg-end">
+                                <a href="mailto:${profile.email}" class="btn-action primary w-100 w-lg-auto">
+                                    <i class="bi bi-send"></i> Invia un'email
                                 </a>
-                            ` : ''}
-                            ${project.demo ? `
-                                <a href="${project.demo}" target="_blank" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-box-arrow-up-right"></i> Demo
-                                </a>
-                            ` : ''}
+                                <button type="button" class="btn-action secondary w-100 w-lg-auto copy-email-secondary" data-email="${profile.email}">
+                                    <i class="bi bi-clipboard"></i> Copia ${profile.email}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Feedback toast copia email -->
+        <div id="copy-toast" class="toast-popup" aria-live="polite">
+            <i class="bi bi-check2"></i>
+            <span id="copy-toast-msg">Email copiata negli appunti!</span>
         </div>
     `;
+}
 
+/**
+ * Renderizza un progetto di punta con layout editoriale
+ */
+function renderFeaturedProjectItem(project) {
     return `
-        <div class="fade-in">
-            <div class="container py-5">
-                <div class="row mb-5">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h1 class="display-4 text-primary mb-3">
-                            <i class="bi bi-folder-fill"></i> Progetti
-                        </h1>
-                        <p class="lead text-secondary mb-4">Una selezione dei miei lavori più significativi</p>
-                        <div class="d-flex justify-content-center gap-2 flex-wrap">
-                            <span class="badge bg-info px-3 py-2">
-                                <i class="bi bi-book"></i> ${universityProjects.length} Universitari
-                            </span>
-                            <span class="badge bg-danger px-3 py-2">
-                                <i class="bi bi-heart"></i> ${personalProjects.length} Personali
-                            </span>
-                            <span class="badge bg-success px-3 py-2">
-                                <i class="bi bi-check-circle"></i> ${projects.filter(p => p.status === 'Completato').length} Completati
-                            </span>
-                        </div>
+        <div class="featured-item">
+            <div class="featured-main">
+                <div class="featured-header-row">
+                    <div class="featured-title-group">
+                        <h3 class="featured-title">${project.name}</h3>
+                        <span class="project-year">${project.year}</span>
                     </div>
+                    <span class="category-label">${getCategoryLabel(project.category)}</span>
                 </div>
-                
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <!-- Accordion per progetti -->
-                        <div class="accordion" id="projectsAccordion">
-                            <!-- Progetti Universitari -->
-                            <div class="accordion-item mb-3 border-0 rounded fade-in-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" 
-                                            data-bs-toggle="collapse" data-bs-target="#universityProjects" 
-                                            aria-expanded="true" aria-controls="universityProjects">
-                                        <i class="bi bi-book-fill me-2 fs-4 text-info"></i>
-                                        <div>
-                                            <strong class="d-block">Progetti Universitari</strong>
-                                            <small>Lavori sviluppati durante il percorso accademico</small>
-                                        </div>
-                                        <span class="badge bg-info ms-auto me-3">${universityProjects.length}</span>
-                                    </button>
-                                </h2>
-                                <div id="universityProjects" class="accordion-collapse collapse show" 
-                                     data-bs-parent="#projectsAccordion">
-                                    <div class="accordion-body pt-4">
-                                        <div class="row g-3">
-                                            ${universityProjects.map(renderProjectCard).join('')}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- Progetti Personali -->
-                            <div class="accordion-item border-0 rounded fade-in-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" 
-                                            data-bs-toggle="collapse" data-bs-target="#personalProjects" 
-                                            aria-expanded="false" aria-controls="personalProjects">
-                                        <i class="bi bi-heart-fill me-2 fs-4 text-danger"></i>
-                                        <div>
-                                            <strong class="d-block">Progetti Personali</strong>
-                                            <small>Esperimenti e side projects per crescita personale</small>
-                                        </div>
-                                        <span class="badge bg-danger ms-auto me-3">${personalProjects.length}</span>
-                                    </button>
-                                </h2>
-                                <div id="personalProjects" class="accordion-collapse collapse" 
-                                     data-bs-parent="#projectsAccordion">
-                                    <div class="accordion-body pt-4">
-                                        <div class="row g-3">
-                                            ${personalProjects.map(renderProjectCard).join('')}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <p class="featured-highlight">${project.highlight}</p>
+                <p class="featured-description">${project.description}</p>
+
+                <div class="featured-details">
+                    <ul class="key-points-list">
+                        ${project.metrics.map(m => `<li>${m}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="featured-footer-row">
+                    <div class="tech-tags">
+                        ${project.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
+                    <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="code-link">
+                        <i class="bi bi-github"></i> Codice su GitHub
+                    </a>
                 </div>
             </div>
         </div>
     `;
 }
 
-export function renderContacts() {
+/**
+ * Renderizza una card per il catalogo progetti completo
+ */
+function renderCatalogCard(project) {
     return `
-        <div class="fade-in">
-            <div class="container py-5">
-                <div class="row mb-5">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h1 class="display-4 text-primary mb-3">
-                            <i class="bi bi-chat-dots"></i> Mettiamoci in Contatto
-                        </h1>
-                        <p class="lead text-secondary mb-4">Interessato a collaborare o semplicemente fare una chiacchierata?</p>
-                        <p class="text-body-color">Sono sempre disponibile per nuove opportunità, progetti interessanti o anche solo per scambiare idee nel mondo tech.</p>
-                    </div>
-                </div>
-                
-                <div class="row ">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="row g-4 mb-5 align-items-center justify-content-center">
-                            ${contacts.social.map((social, index) => `
-                                <div class="col-md-6 fade-in-item">
-                                    <a href="${social.url}" target="_blank" class="text-decoration-none">
-                                        <div class="card text-center h-100 contact-card p-4">
-                                            <div class="card-body">
-                                                <i class="bi bi-${social.icon} ${social.color} contact-icon"></i>
-                                                <h4 class="mb-2 text-heading">${social.platform}</h4>
-                                                <p class="text-muted-custom mb-3">@${social.platform === 'GitHub' ? contacts.github.username : contacts.linkedin.username}</p>
-                                                <span class="badge bg-primary-subtle">
-                                                    Vai al profilo <i class="bi bi-arrow-right"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
+        <div class="catalog-card project-item" data-category="${project.category}">
+            <div class="card-top">
+                <span class="card-category">${getCategoryLabel(project.category)}</span>
+                <span class="card-year">${project.year}</span>
+            </div>
+            
+            <h3 class="card-title">${project.name}</h3>
+            <p class="card-highlight">${project.highlight}</p>
+            <p class="card-desc">${project.description}</p>
+
+            <div class="card-techs">
+                ${project.technologies.slice(0, 4).map(t => `<span class="tech-tag-sm">${t}</span>`).join('')}
+                ${project.technologies.length > 4 ? `<span class="tech-tag-sm">+${project.technologies.length - 4}</span>` : ''}
+            </div>
+
+            <div class="card-bottom">
+                <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="link-github">
+                    <i class="bi bi-github"></i> Repository GitHub
+                </a>
             </div>
         </div>
     `;
+}
+
+function getCategoryLabel(category) {
+    switch (category) {
+        case 'devsecops': return 'DevSecOps & Sicurezza';
+        case 'systems': return 'Reti & Sistemi';
+        case 'fullstack': return 'Web & AI';
+        default: return 'Software';
+    }
 }

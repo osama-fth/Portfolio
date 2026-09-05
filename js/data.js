@@ -1,382 +1,278 @@
 export const portfolioData = {
-    // Profilo personale
+    // Profilo personale: autentico, umano e diretto
     profile: {
-        name: "Foutih Osama",
-        title: "Studente di Informatica & Software Developer",
-        tagline: "Appassionato di automazione, DevOps e Sicurezza Informatica.",
-        bio: `Studente universitario con una forte passione per lo sviluppo software, 
-        l'automazione dei processi e la sicurezza informatica.`,
-        location: "Piemonte, Italia",
+        name: "Osama Foutih",
+        role: "Aspirante Ingegnere DevSecOps",
+        subtitle: "Laureato in Informatica (UPO) • Laureando Magistrale in Sicurezza Informatica (UniMi)",
+        location: "Novara, Piemonte, Italia",
+        availability: "Disponibile per opportunità DevSecOps & Cloud/Backend",
+        email: "foutihosama@gmail.com",
+        github: "https://github.com/osama-fth",
+        linkedin: "https://www.linkedin.com/in/osama-foutih",
+        portfolioUrl: "https://osama-fth.github.io/Portfolio",
+        summary: `Sono un laureato in Informatica all'Università del Piemonte Orientale e studente magistrale in Sicurezza Informatica (LM-66) all'Università degli Studi di Milano. Mi interessa in particolare il DevSecOps: creare pipeline di rilascio sicure, automatizzare la scansione delle vulnerabilità nei container e capire come comunicano i sistemi distribuiti a basso livello, tra networking, crittografia e codice in Go, C e Python.`,
+        corePillars: [
+            { label: "Container & Orchestrazione", value: "Docker, Docker Compose" },
+            { label: "CI/CD & Sicurezza", value: "GitHub Actions, Trivy" },
+            { label: "Linguaggi & Sistemi", value: "Go, Python, C, Linux, SQL" },
+            { label: "Architettura & Reti", value: "Microservizi, Load Balancing, TCP/IP, MQTT" }
+        ]
     },
 
-    // Formazione accademica
-    education: [
-        {
-            id: 1,
-            degree: "Laurea Triennale in Informatica (L-31)",
-            institution: "Università del Piemonte Orientale",
-            location: "Vercelli, Italia",
-            period: "2023 - In Corso",
-            description: "Percorso accademico che combina solide basi teoriche con competenze pratiche nello sviluppo software. Il piano di studi approfondisce l'intero stack tecnologico, dall'architettura hardware alla progettazione di applicazioni web e mobili.",
-            highlights: [
-                "Architettura degli Elaboratori e Sistemi Operativi",
-                "Algoritmi, Strutture Dati e Complessità",
-                "Basi di Dati e Sistemi Informativi",
-                "Sviluppo Web e Metodologie di Programmazione",
-                "Reti di Calcolatori e Sicurezza"
-            ]
-        },
-        {
-            id: 2,
-            degree: "Diploma Liceo Scientifico - Opzione Scienze Applicate",
-            institution: "IIS Biagio Pascal",
-            location: "Romentino, Italia",
-            period: "2018 - 2023",
-            description: "Indirizzo scientifico focalizzato sulle discipline STEM che integra lo studio tradizionale con un forte approccio laboratoriale e l'informatica curricolare al posto del latino.",
-            highlights: [
-                "Analisi Matematica e Fisica",
-                "Informatica e Logica Computazionale",
-                "Scienze Naturali (Chimica, Biologia, Scienze della Terra)",
-                "Modellizzazione e Analisi dei Dati"
-            ]
-        }
-    ],
-
-    // Esperienze
+    // Esperienza professionale reale (PDF: 4 Zeta srl)
     experiences: [
         {
             id: 1,
             role: "Software Developer Intern",
-            company: "4 Zeta Srl",
+            company: "4 Zeta srl",
             location: "Novara, Italia",
             period: "Marzo 2026 - Giugno 2026",
-            description: "Manutenzione evolutiva e ottimizzazione di una piattaforma ERP aziendale basata su architettura PHP MVC, database relazionali e integrazioni REST API / Webhooks.",
-            highlights: [
-                "Integrazioni e Sicurezza: Sviluppo di moduli per la gestione di pagamenti elettronici ed esportazione dati strutturati (JSON/XML) verso sistemi Enterprise esterni.",
-                "Backend & Ottimizzazione: Debugging del software core e ottimizzazione dello script di generazione PDF per la riduzione dei tempi di elaborazione e del carico server.",
-                "Frontend Dinamico: Implementazione di interfacce utente dinamiche, form auto-compilanti con gestione dello stato e routing client-side tramite parametri URL.",
-                "Version Control & Workflow: Gestione del codice tramite Git, partecipazione attiva a code review interne e allineamento con le specifiche tecniche del team di sviluppo."
-            ]
+            duration: "4 mesi",
+            overview: "Sviluppo e manutenzione sulla piattaforma ERP aziendale (PHP, architettura MVC e database relazionali). Mi sono occupato di integrazioni con sistemi esterni, risoluzione di colli di bottiglia e sviluppo di nuove interfacce.",
+            bullets: [
+                "Integrazioni esterne: ho sviluppato moduli per la gestione di pagamenti elettronici ed esportazione dati strutturati (JSON/XML) verso sistemi Enterprise di terze parti.",
+                "Backend & Prestazioni: debugging del core applicativo e ottimizzazione dello script di generazione PDF, riducendo sensibilmente i tempi di elaborazione e il carico sul server.",
+                "Frontend: implementazione di form interattivi autocompilanti con validazione e gestione dello stato client-side.",
+                "Workflow di squadra: gestione delle modifiche tramite Git, rispetto delle linee guida interne e code review costanti con gli sviluppatori senior."
+            ],
+            stack: ["PHP", "MVC", "JavaScript", "SQL", "REST APIs", "Webhooks", "Git"]
         }
     ],
 
-    // Competenze tecniche
-    skills: {
-        acquired: [
-            // Linguaggi Core
-            { name: "C", category: "language", icon: "c-circle" },
-            { name: "Java", category: "language", icon: "filetype-java" },
-            { name: "Python", category: "language", icon: "filetype-py" },
-            { name: "JavaScript", category: "language", icon: "filetype-js" },
-
-            // Web & Data
-            { name: "HTML/CSS", category: "frontend", icon: "file-code" },
-            { name: "SQL", category: "database", icon: "database" },
-            { name: "REST APIs", category: "backend", icon: "hdd-network" },
-
-            // Tools & Systems
-            { name: "Git", category: "tool", icon: "git" },
-            { name: "Linux", category: "system", icon: "terminal" },
-            { name: "Docker", category: "devops", icon: "box-seam" }
-        ],
-        learning: [
-            // Backend Avanzato
-            { name: "Go", category: "language", icon: "code-slash" },
-            { name: "MongoDB", category: "database", icon: "server" },
-            { name: "Redis", category: "database", icon: "hdd-stack" },
-
-            // Security & DevOps
-            { name: "DevSecOps", category: "practice", icon: "shield-check" },
-            { name: "CI/CD Pipelines", category: "devops", icon: "arrow-repeat" },
-            { name: "Network Security", category: "security", icon: "router" },
-            { name: "Cloud Basics", category: "cloud", icon: "cloud" },
-            { name: "Ai Basics", category: "ai", icon: "robot" }
-        ]
+    // Competenze tecniche reali
+    skillsGrouped: {
+        devSecOps: {
+            title: "DevSecOps & Cloud",
+            skills: ["Docker", "Docker Compose", "CI/CD Pipelines", "GitHub Actions", "Trivy (Vulnerability Scanner)", "Linux (Bash)"]
+        },
+        languages: {
+            title: "Linguaggi di Programmazione",
+            skills: ["Python", "C", "Java 21", "PHP", "JavaScript", "SQL", "Go"]
+        },
+        networkingAndSecurity: {
+            title: "Reti & Sicurezza",
+            skills: ["TCP/IP", "Load Balancing & Rate Limiting", "Crittografia (AES, RSA, Bcrypt)", "MQTT & Broker Mosquitto", "REST APIs & Webhooks"]
+        },
+        databasesAndTools: {
+            title: "Database & Strumenti",
+            skills: ["PostgreSQL", "SQLite", "Git & GitHub", "Make / Maven", "FastAPI / Express"]
+        }
     },
 
-    // Progetti
-    projects: [
-        // ==========================
-        // PROGETTI UNIVERSITARI
-        // ==========================
+    // Formazione accademica reale
+    education: [
         {
             id: 1,
-            name: "NutriPlan",
-            type: "university",
-            status: "Completato",
-            description: "Piattaforma full-stack per la telegestione nutrizionale basata su architettura MVC. Implementa il pattern DAO per l'astrazione dei dati, rendering server-side dinamico e generazione automatizzata di reportistica clinica.",
-            technologies: ["Node.js", "Express.js", "SQLite", "EJS", "Bootstrap 5", "Chart.js"],
-            features: [
-                "Autenticazione tramite sessione e sicurezza con Bcrypt",
-                "Visualizzazione dei dati e analisi",
-                "Implementazione del pattern DAO",
-                "Generazione dinamica di PDF"
-            ],
-            github: "https://github.com/osama-fth/UPO-Web-NutriPlan",
-            year: "2024"
+            degree: "Laurea Magistrale in Sicurezza Informatica (LM-66)",
+            institution: "Università degli Studi di Milano",
+            location: "Milano, Italia",
+            period: "2026 - In corso",
+            status: "In corso",
+            statusBadge: "status-current",
+            description: "Studio avanzato su sicurezza dei sistemi distribuiti, crittografia applicata, sicurezza delle reti e analisi delle vulnerabilità."
         },
         {
             id: 2,
-            name: "Bacheca Annunci",
-            type: "university",
-            status: "Completato",
-            description: "Applicazione desktop modulare progettata sui principi OOP. Implementa rigorosamente il pattern MVC per disaccoppiare la logica di business dalle interfacce, permettendo il supporto simultaneo di GUI e CLI sullo stesso core applicativo.",
-            technologies: ["Java 21", "Swing", "JUnit 5"],
-            features: [
-                "Implementazione architetturale MVC",
-                "Interfaccia polimorfica (Swing e CLI)",
-                "Testing unitario automatizzato",
-                "Persistenza dati personalizzata"
-            ],
-            github: "https://github.com/osama-fth/UPO-Java-Bacheca-Annunci",
-            year: "2024"
+            degree: "Laurea Triennale in Scienze e Tecnologie Informatiche (L-31)",
+            institution: "Università degli Studi del Piemonte Orientale",
+            location: "Vercelli, Italia",
+            period: "2023 - 2026",
+            status: "Conseguita",
+            statusBadge: "status-completed",
+            description: "Solide basi di calcolatori, sistemi operativi, reti, algoritmi e strutture dati, basi di dati relazionali e ingegneria del software."
         },
         {
             id: 3,
-            name: "Grafi",
-            type: "university",
-            status: "Completato",
-            description: "Libreria Java per la modellazione e manipolazione di grafi (pesati e non) basata su Matrice di Incidenza. Include l'implementazione di algoritmi di attraversamento e analisi topologica, con gestione automatizzata delle dipendenze e testing unitario.",
-            technologies: ["Java 21", "Maven", "JUnit 5"],
-            features: [
-                "Struttura a matrice di incidenza",
-                "Attraversamento del grafo (BFS e DFS)",
-                "Rilevamento cicli e connettività",
-                "Gestione delle dipendenze con Maven"
-            ],
-            github: "https://github.com/osama-fth/UPO-Algoritmi2-Grafi",
-            year: "2024"
-        },
-        {
-            id: 4,
-            name: "UPOalglib",
-            type: "university",
-            status: "Completato",
-            description: "Libreria C low-level che implementa da zero le fondamenta dell'informatica. Include strutture dati complesse (BST, Hash Tables con collision handling), algoritmi di ordinamento e utility per il profiling delle performance.",
-            technologies: ["C", "Make"],
-            features: [
-                "Strutture dati personalizzate (BST, Hash Table)",
-                "Ottimizzazione degli algoritmi di ordinamento",
-                "Valutazione di espressioni basata su stack",
-                "Benchmark delle prestazioni"
-            ],
-            github: "https://github.com/osama-fth/UPO-Algoritmi1-UPOalglib",
-            year: "2024"
-        },
-        {
-            id: 5,
-            name: "MyFirstNetworkApp",
-            type: "university",
-            status: "Completato",
-            description: "Esempio essenziale di comunicazione Client-Server in C. Gestisce manualmente la connessione TCP/IP e lo scambio di messaggi utilizzando le librerie di rete standard di sistema (Socket API).",
-            technologies: ["C", "TCP/IP"],
-            features: [
-                "Architettura client-server",
-                "Programmazione socket a basso livello",
-                "Operazioni di I/O bloccanti",
-                "Gestione dei buffer"
-            ],
-            github: "https://github.com/osama-fth/myFirstNetworkApp",
-            year: "2023"
-        },
-        {
-            id: 6,
-            name: "Compilatore Ac",
-            type: "university",
-            status: "Completato",
-            description: "Sviluppo di un semplice compilatore a discesa ricorsiva per un linguaggio proprietario. Realizzato manualmente in Java per approfondire le dinamiche di parsing di una grammatica definita ad hoc.",
-            technologies: ["Java 21", "JUnit 5"],
-            features: [
-                "Analisi Lessicale con gestione dei token e delle espressioni regolari",
-                "Parser a discesa ricorsiva per la costruzione dell'AST",
-                "Analisi Semantica e Type Checking tramite Symbol Table",
-            ],
-            "github": "https://github.com/osama-fth/UPO-FLT-Compilatore-Ac-Dc",
-            "year": "2025"
-        },
-        {
-            id: 7,
-            name: "EasyBook",
-            type: "university",
-            status: "Completato",
-            description: "Progetto di gruppo per la progettazione e sviluppo di un sistema software complesso seguendo il ciclo di vita del software.",
-            technologies: ["Java 21", "Javafx", "Junit", "UML", "Design Patterns"],
-            features: [
-                "Ingegneria dei Requisiti e Modellazione UML (Casi d'uso, Classi, Sequenza)",
-                "Applicazione di Design Patterns (es. Singleton, DAO, MVC, POJO)",
-                "Interfaccia utente reattiva sviluppata in JavaFX con architettura FXML",
-            ],
-            github: "https://github.com/osama-fth/UPO-IngSoftware-EasyBook",
-            year: "2025"
-        },
-        {
-            "id": 8,
-            "name": "AiTravelPlanner",
-            "type": "university",
-            "status": "Completato",
-            "description": "Sistema multi-agente avanzato per la pianificazione di viaggi end-to-end. Unisce la ricerca live di dati reali (voli, hotel, meteo) a un robusto sistema RAG basato su documenti ministeriali ufficiali per un'esperienza sicura e affidabile.",
-            "technologies": [
-                "Python",
-                "Agno Framework",
-                "FastAPI",
-                "SvelteKit",
-                "LanceDB",
-                "SQLite",
-                "Groq",
-                "Google Gemini"
-            ],
-            "features": [
-                "Architettura Multi-Agente orchestrata",
-                "Sistema RAG con database vettoriale serverless LanceDB e pipeline di ingestion per PDF",
-                "Protezione del sistema tramite Guardrails per prevenire fughe di dati PII e Prompt Injection in multilingua",
-                "Ricerca live integrata per voli (CLI custom), hotel (DuckDuckGo) e meteo (Open-Meteo dinamico API forecast/climate)"
-            ],
-            "github": "https://github.com/osama-fth/UPO-AppIntelligenti-AiTravelPlanner",
-            "year": "2026"
-        },
-        // ==========================
-        // PROGETTI PERSONALI
-        // ==========================
-        {
-            id: 9,
-            name: "Simple CI/CD",
-            type: "personal",
-            status: "Completato",
-            description: "Pipeline DevSecOps completa applicata a un gestionale bibliotecario full-stack. Integra scansione vulnerabilità, linting automatizzato e test di integrazione in container, orchestrando tutto tramite GitHub Actions.",
-            technologies: ["Docker Compose", "GitHub Actions", "Trivy", "PostgreSQL", "Node.js", "ESLint"],
-            features: [
-                "Architettura a microservizi containerizzata",
-                "Scansione di sicurezza automatizzata (Trivy)",
-                "Test di integrazione nella pipeline CI",
-                "Controlli di qualità del codice"
-            ],
-            github: "https://github.com/osama-fth/Simple-CI-CD",
-            year: "2025"
-        },
-        {
-            id: 10,
-            name: "CrypTool",
-            type: "personal",
-            status: "Completato",
-            description: "Laboratorio interattivo containerizzato per l'analisi di algoritmi crittografici. Permette di eseguire simulazioni di attacchi (Brute Force, Dictionary, Rainbow Table) in ambiente controllato per dimostrare le vulnerabilità dei cifrari legacy rispetto agli standard moderni.",
-            technologies: ["Python", "FastAPI", "Docker", "OpenAPI"],
-            features: [
-                "Simulazione di vulnerabilità (brute force)",
-                "Implementazione di standard moderni (AES-256, RSA)",
-                "Hash sicuri delle password (Bcrypt)",
-                "Documentazione API interattiva"
-            ],
-            github: "https://github.com/osama-fth/cryptool",
-            year: "2025"
-        },
-        {
-            id: 11,
-            name: "Generatore Codice Fiscale",
-            type: "personal",
-            status: "Completato",
-            description: "Implementazione rigorosa dell'algoritmo governativo per il calcolo del Codice Fiscale. Il software gestisce il parsing efficiente di dataset CSV (codici catastali) integrati nel JAR e garantisce l'integrità dei dati tramite validazione input e Unit Testing.",
-            technologies: ["Java", "JUnit 5", "Makefile", "CSV Parsing"],
-            features: [
-                "Gestione delle risorse e stream",
-                "Testing unitario automatizzato",
-                "Sistema di build personalizzato (Makefile)"
-            ],
-            github: "https://github.com/osama-fth/CodiceFiscale",
-            year: "2025"
-        },
-        {
-            id: 12,
-            name: "Go Port Scanner",
-            type: "personal",
-            status: "Completato",
-            description: "Scanner di porte di rete ad alte prestazioni scritto in Go. Utilizza le goroutines per scansioni concorrenti ultra-veloci.",
-            technologies: ["Go", "Networking", "Concurrency"],
-            features: ["Scansione concorrente", "TCP Connect", "Analisi range IP"],
-            github: "https://github.com/osama-fth/PortScanner",
-            year: "2025"
-        },
-        {
-            id: 13,
-            name: "LoadBalancer con Rate Limiting",
-            type: "personal",
-            status: "Completato",
-            description: "Sistema di load balancing con rate limiting implementato usando Nginx, Docker e Flask. Dimostra come distribuire il carico tra più server backend utilizzando l'algoritmo Least Connections e come proteggere il sistema con un rate limiter da overload.",
-            technologies: ["Nginx", "Docker", "Flask", "Python", "Bash"],
-            features: [
-                "Load Balancing con algoritmo Least Connections",
-                "Rate Limiting (1 richiesta/secondo + burst di 10)",
-                "Testing automatico con script bash paralleli",
-                "Architettura a microservizi containerizzata",
-                "Monitoring e logging delle richieste"
-            ],
-            github: "https://github.com/osama-fth/LoadBalancer",
-            year: "2025"
-        },
-        {
-            id: 14,
-            name: "SmartHome",
-            type: "personal",
-            status: "Completato",
-            description: "Sistema IoT per il monitoraggio domestico basato sul protocollo MQTT. Sensori simulati pubblicano dati su topic MQTT verso un broker Eclipse Mosquitto; un controller sottoscrive i topic, applica logica di controllo sugli attuatori e persiste i dati su PostgreSQL. Una dashboard Streamlit interroga il DB in tempo reale. L'intera infrastruttura è orchestrata con Docker Compose.",
-            technologies: ["MQTT", "Mosquitto", "Python", "Streamlit", "PostgreSQL", "Docker Compose"],
-            features: [
-                "Comunicazione publish/subscribe MQTT",
-                "Sensori simulati: temperatura e movimento",
-                "Controller MQTT: controllo termostato e gestione luci",
-                "Persistenza degli eventi su PostgreSQL e dashboard Streamlit",
-            ],
-            github: "https://github.com/osama-fth/SmartHome",
-            year: "2026"
-        },
-        {
-            id: 15,
-            name: "Supabase Blog",
-            type: "personal",
-            status: "Completato",
-            description: "Blog/CMS minimale con post, commenti e gestione ruoli (admin, author, reader). Utilizza Supabase per l'autenticazione e il database, ed è strutturato per essere avviato in ambiente locale tramite Docker e Supabase CLI.",
-            technologies: ["Node.js", "Express.js", "Supabase", "BaaS", "Docker"],
-            features: [
-                "Gestione post e commenti con ruoli utente",
-                "Autenticazione e database tramite Supabase",
-                "Dashboard per amministratori e autori"
-            ],
-            github: "https://github.com/osama-fth/Supabase-Blog",
-            year: "2026"
+            degree: "Diploma Liceo Scientifico (Scienze Applicate)",
+            institution: "IIS Biagio Pascal",
+            location: "Romentino (NO), Italia",
+            period: "2018 - 2023",
+            status: "Conseguito",
+            statusBadge: "status-completed",
+            description: "Indirizzo scientifico con laboratorio informatico quinquennale, programmazione, matematica e fisica."
         }
     ],
 
-    // Contatti
-    contacts: {
-        github: {
-            username: "osama-fth",
-            url: "https://github.com/osama-fth"
-        },
-        linkedin: {
-            username: "osama-foutih",
-            url: "https://linkedin.com/in/osama-foutih"
-        },
-        social: [
-            {
-                platform: "GitHub",
-                icon: "github",
-                url: "https://github.com/osama-fth",
-                color: "text-light"
-            },
-            {
-                platform: "LinkedIn",
-                icon: "linkedin",
-                url: "https://linkedin.com/in/osama-foutih",
-                color: "text-primary"
-            }
-        ]
-    },
-
+    // Competenze linguistiche reali con i livelli del CV
     languages: [
-        { name: "Italiano", level: "Madrelingua" },
-        { name: "Inglese", level: "Intermedio" },
-        { name: "Arabo", level: "Intermediox" },
+        { name: "Italiano", level: "Madrelingua", badge: "Madrelingua" },
+        { name: "Marocchino", level: "Madrelingua", badge: "Madrelingua" },
+        { name: "Inglese", level: "Professionale completo", badge: "Fluente / B2" },
+        { name: "Arabo", level: "Lavorativo limitato", badge: "Base / Lavorativo" }
+    ],
 
+    // Progetti realizzati
+    projects: [
+        {
+            id: "cicd",
+            name: "Simple CI/CD Pipeline",
+            category: "devsecops",
+            featured: true,
+            status: "Completato",
+            year: "2025",
+            highlight: "Pipeline DevSecOps completa con scansione automatica Trivy",
+            description: "Pipeline per un'applicazione full-stack containerizzata. Automatizza il linting, esegue test di integrazione all'interno di container Docker e analizza le immagini con Trivy ad ogni commit e pull request su GitHub Actions.",
+            technologies: ["Docker Compose", "GitHub Actions", "Trivy", "PostgreSQL", "Node.js", "ESLint"],
+            metrics: ["Scansione automatica CVE su pull request", "Test di integrazione containerizzati", "Build Docker multi-stage"],
+            github: "https://github.com/osama-fth/Simple-CI-CD"
+        },
+        {
+            id: "portscanner",
+            name: "Port Scanner Concorrente in Go",
+            category: "systems",
+            featured: true,
+            status: "Completato",
+            year: "2025",
+            highlight: "Scansione porte ad alto throughput con goroutine e canali",
+            description: "Scanner di porte TCP scritto in Go. Sfrutta il runtime concorrente delle goroutine e un pool di worker per scansionare ampi range di porte contemporaneamente, gestendo timeout ed errori socket senza bloccare il flusso.",
+            technologies: ["Go", "Socket TCP/IP", "Goroutine & Canali", "Networking"],
+            metrics: ["Centinaia di porte analizzate in pochi istanti", "Worker pool concorrente con sincronizzazione"],
+            github: "https://github.com/osama-fth/PortScanner"
+        },
+        {
+            id: "loadbalancer",
+            name: "Load Balancer con Rate Limiting",
+            category: "devsecops",
+            featured: true,
+            status: "Completato",
+            year: "2025",
+            highlight: "Bilanciamento Least Connections e protezione da sovraccarico",
+            description: "Architettura a microservizi orchestrata con Docker Compose. Distribuisce il traffico verso molteplici nodi backend Flask applicando l'algoritmo Least Connections e un limitatore di richieste con burst protetto, validato tramite test di carico paralleli in Bash.",
+            technologies: ["Docker Compose", "Flask", "Python", "Bash", "Microservizi", "Load Balancing"],
+            metrics: ["Algoritmo Least Connections attivo", "Protezione da spike con test di carico paralleli"],
+            github: "https://github.com/osama-fth/LoadBalancer"
+        },
+        {
+            id: "cryptool",
+            name: "CrypTool Lab",
+            category: "devsecops",
+            featured: true,
+            status: "Completato",
+            year: "2025",
+            highlight: "Laboratorio containerizzato per lo studio di algoritmi crittografici",
+            description: "Ambiente controllato per analizzare algoritmi di cifratura moderni (AES-256, RSA, hashing Bcrypt) e simulare attacchi su cifrari obsoleti (forza bruta, dizionario, tabelle arcobaleno), esponendo metriche via API FastAPI.",
+            technologies: ["Python", "FastAPI", "Docker", "OpenAPI", "Crittografia"],
+            metrics: ["Benchmark algoritmi legacy vs moderni", "Documentazione interattiva OpenAPI"],
+            github: "https://github.com/osama-fth/cryptool"
+        },
+        {
+            id: "aitravelplanner",
+            name: "AiTravelPlanner Multi-Agent",
+            category: "fullstack",
+            featured: false,
+            status: "Completato",
+            year: "2026",
+            highlight: "Sistema multi-agente RAG con guardrail di sicurezza",
+            description: "Piattaforma per la pianificazione automatizzata di viaggi. Combina ricerca live di dati reali con un sistema RAG su database vettoriale LanceDB (acquisizione PDF ufficiali) e un layer di protezione contro prompt injection e fuga di dati sensibili.",
+            technologies: ["Python", "FastAPI", "SvelteKit", "LanceDB", "SQLite", "Groq", "Google Gemini"],
+            metrics: ["Architettura a più agenti coordinati", "Filtro guardrail per validazione input/output"],
+            github: "https://github.com/osama-fth/UPO-AppIntelligenti-AiTravelPlanner"
+        },
+        {
+            id: "smarthome",
+            name: "SmartHome IoT con MQTT",
+            category: "systems",
+            featured: false,
+            status: "Completato",
+            year: "2026",
+            highlight: "Architettura publish/subscribe con broker Eclipse Mosquitto",
+            description: "Infrastruttura IoT per il monitoraggio domestico. Sensori virtuali inviano telemetria verso il broker MQTT; un controller riceve i dati, aziona le logiche di controllo e persiste gli eventi su PostgreSQL per la visualizzazione in tempo reale su Streamlit.",
+            technologies: ["MQTT", "Eclipse Mosquitto", "Python", "Streamlit", "PostgreSQL", "Docker Compose"],
+            metrics: ["Comunicazione disaccoppiata pub/sub", "Intero stack containerizzato"],
+            github: "https://github.com/osama-fth/SmartHome"
+        },
+        {
+            id: "nutriplan",
+            name: "NutriPlan",
+            category: "fullstack",
+            featured: false,
+            status: "Completato",
+            year: "2024",
+            highlight: "Portale clinico MVC con pattern DAO e generazione PDF",
+            description: "Applicazione web per la gestione di piani alimentari e report clinici. Sviluppata secondo il pattern MVC con separazione DAO per il database SQLite, sessioni protette con Bcrypt e generazione server-side di documenti PDF esportabili.",
+            technologies: ["Node.js", "Express.js", "SQLite", "EJS", "Bootstrap 5", "Chart.js"],
+            metrics: ["Pattern DAO", "Password protette con Bcrypt"],
+            github: "https://github.com/osama-fth/UPO-Web-NutriPlan"
+        },
+        {
+            id: "supabaseblog",
+            name: "Supabase Blog RBAC",
+            category: "fullstack",
+            featured: false,
+            status: "Completato",
+            year: "2026",
+            highlight: "Controllo degli accessi basato sui ruoli (RBAC) in Docker",
+            description: "Piattaforma blog con autenticazione utente e gestione differenziata dei permessi (lettore, autore, amministratore), configurata per essere avviata in ambiente locale isolato con Docker.",
+            technologies: ["Node.js", "Express.js", "Supabase CLI", "PostgreSQL", "Docker"],
+            metrics: ["Permessi per ruolo (RBAC)", "Ambiente locale riproducibile"],
+            github: "https://github.com/osama-fth/Supabase-Blog"
+        },
+        {
+            id: "networkapp",
+            name: "Client-Server TCP a Basso Livello",
+            category: "systems",
+            featured: false,
+            status: "Completato",
+            year: "2023",
+            highlight: "Comunicazione di rete con socket POSIX in C",
+            description: "Progetto pratico per approfondire il funzionamento dei socket a livello di sistema operativo. Implementa connessioni TCP bloccanti, gestione manuale dei buffer di memoria e protocollo di comunicazione client-server.",
+            technologies: ["C", "TCP/IP", "Socket POSIX", "Linux"],
+            metrics: ["Gestione manuale di buffer e memoria", "Chiamate di sistema POSIX"],
+            github: "https://github.com/osama-fth/myFirstNetworkApp"
+        },
+        {
+            id: "upoalglib",
+            name: "UPOalglib",
+            category: "systems",
+            featured: false,
+            status: "Completato",
+            year: "2024",
+            highlight: "Libreria C con strutture dati fondamentali e benchmark",
+            description: "Implementazione manuale da zero di strutture dati classiche in C: alberi binari di ricerca (BST), tabelle hash con gestione delle collisioni, algoritmi di ordinamento e routine di profiling per tempi di esecuzione e memoria.",
+            technologies: ["C", "Make", "Strutture Dati & Algoritmi"],
+            metrics: ["Zero memory leak verificati", "Build system con Makefile"],
+            github: "https://github.com/osama-fth/UPO-Algoritmi1-UPOalglib"
+        },
+        {
+            id: "compilatore",
+            name: "Compilatore Ac",
+            category: "systems",
+            featured: false,
+            status: "Completato",
+            year: "2025",
+            highlight: "Lexer, parser ad albero AST e type checking in Java",
+            description: "Sviluppo di un compilatore a discesa ricorsiva per un linguaggio formale. Comprende analisi lessicale, costruzione dell'albero sintattico astratto (AST) e analisi semantica con tabella dei simboli.",
+            technologies: ["Java 21", "Linguaggi Formali", "JUnit 5"],
+            metrics: ["Analisi lessicale e sintattica completa", "Test unitari con JUnit 5"],
+            github: "https://github.com/osama-fth/UPO-FLT-Compilatore-Ac-Dc"
+        },
+        {
+            id: "easybook",
+            name: "EasyBook",
+            category: "fullstack",
+            featured: false,
+            status: "Completato",
+            year: "2025",
+            highlight: "Gestionale ad oggetti con modellazione UML e design pattern",
+            description: "Progetto di ingegneria del software sviluppato in team: raccolta requisiti, progettazione con diagrammi UML (classi, casi d'uso, sequenza), applicazione dei pattern Singleton, DAO, MVC e interfaccia grafica in JavaFX.",
+            technologies: ["Java 21", "JavaFX", "UML", "Design Patterns", "JUnit"],
+            metrics: ["Sviluppo cooperativo in team", "Architettura modulare disaccoppiata"],
+            github: "https://github.com/osama-fth/UPO-IngSoftware-EasyBook"
+        },
+        {
+            id: "codicefiscale",
+            name: "Generatore Codice Fiscale",
+            category: "systems",
+            featured: false,
+            status: "Completato",
+            year: "2025",
+            highlight: "Calcolo algoritmico ufficiale con parsing dataset catastale",
+            description: "Implementazione dell'algoritmo governativo per il calcolo del codice fiscale. Esegue il parsing efficiente dei codici catastali da file CSV compressi e valida l'integrità dei dati tramite controlli formali e unit test.",
+            technologies: ["Java", "JUnit 5", "Makefile", "Data Parsing"],
+            metrics: ["Validazione accurata dell'input", "Compilazione rapida con Makefile"],
+            github: "https://github.com/osama-fth/CodiceFiscale"
+        }
     ]
 };
 
-export const { profile, education, experiences, skills, projects, contacts, languages } = portfolioData;
+export const { profile, experiences, skillsGrouped, education, languages, projects } = portfolioData;
