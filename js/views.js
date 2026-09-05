@@ -2,9 +2,12 @@ import { profile, experiences, skillsGrouped, education, languages, projects } f
 
 /**
  * Interfaccia pulita, autentica e diretta per recruiter e hiring manager.
- * Eliminati i cliché da template AI (nessun effetto neon, niente badge ovunque, struttura editoriale solida).
+ * Include Connected Games Platform e suddivisione chiara tra progetti universitari e personali con relative sottocategorie.
  */
 export function renderPortfolioApp() {
+    const universityCount = projects.filter(p => p.type === 'university').length;
+    const personalCount = projects.filter(p => p.type === 'personal').length;
+
     return `
         <!-- Sezione Introduttiva (Hero) -->
         <section id="summary" class="section-hero">
@@ -61,18 +64,64 @@ export function renderPortfolioApp() {
             </div>
         </section>
 
-        <!-- Progetti di Punta citati nel CV -->
+        <!-- Progetti di Punta citati nel CV e Progetti Architetturali di Rilievo -->
         <section id="featured-projects" class="section-padding section-alt">
             <div class="container">
-                <div class="section-heading">
-                    <h2 class="section-title">Progetti in evidenza</h2>
-                    <p class="section-description">
-                        I progetti principali indicati nel curriculum: pipeline CI/CD con analisi delle vulnerabilità, strumenti di rete concorrenti in Go e architetture a microservizi.
-                    </p>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-4 gap-2">
+                    <div class="section-heading mb-0">
+                        <h2 class="section-title">Progetti in evidenza</h2>
+                        <p class="section-description">
+                            Architetture distribuite, pipeline DevSecOps con scansione CVE e strumenti ad alte prestazioni in Go.
+                        </p>
+                    </div>
+                    <div class="featured-catalog-jump d-none d-md-block">
+                        <a href="#all-projects" class="jump-link font-mono">
+                            Tutti i 14 progetti <i class="bi bi-arrow-down-short"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="featured-list">
-                    ${projects.filter(p => p.featured).map(project => renderFeaturedProjectItem(project)).join('')}
+                <!-- Carosello Orizzontale Bootstrap 5 per i Progetti in Evidenza -->
+                <div id="featuredCarousel" class="carousel slide featured-carousel" data-bs-interval="false">
+                    <!-- Tab pillole per selezione diretta del progetto -->
+                    <div class="carousel-project-tabs" role="tablist" aria-label="Seleziona progetto in evidenza">
+                        ${projects.filter(p => p.featured).map((p, idx) => `
+                            <button type="button" 
+                                class="carousel-tab-btn ${idx === 0 ? 'active' : ''}" 
+                                data-bs-target="#featuredCarousel" 
+                                data-bs-slide-to="${idx}" 
+                                aria-label="Visualizza progetto ${p.name}"
+                                aria-current="${idx === 0 ? 'true' : 'false'}">
+                                <span class="tab-index font-mono">0${idx + 1}</span>
+                                <span class="tab-name">${p.name}</span>
+                                <span class="tab-type-tag ${p.type}">${p.type === 'university' ? 'Univ' : 'Pers'}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <!-- Slide del Carosello -->
+                    <div class="carousel-inner">
+                        ${projects.filter(p => p.featured).map((project, idx) => `
+                            <div class="carousel-item ${idx === 0 ? 'active' : ''}">
+                                ${renderFeaturedProjectItem(project, idx)}
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <!-- Barra controlli inferiore: contatore e frecce di scorrimento -->
+                    <div class="carousel-footer-bar">
+                        <div class="carousel-slide-counter font-mono">
+                            Progetto <span id="carousel-current-index" class="text-accent fw-bold">01</span> di 0${projects.filter(p => p.featured).length}
+                        </div>
+                        <div class="carousel-arrow-nav">
+                            <button class="carousel-arrow-btn" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev" aria-label="Progetto precedente">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="carousel-arrow-btn" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next" aria-label="Progetto successivo">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -125,35 +174,78 @@ export function renderPortfolioApp() {
             </div>
         </section>
 
-        <!-- Catalogo Completo dei Progetti con Filtri -->
+        <!-- Catalogo Completo dei Progetti con Suddivisione Tipologia e Sottocategorie -->
         <section id="all-projects" class="section-padding section-alt">
             <div class="container">
                 <div class="section-heading">
                     <h2 class="section-title">Tutti i progetti</h2>
                     <p class="section-description">
-                        L'archivio completo dei progetti personali e universitari. Filtra per area tematica:
+                        L'archivio completo dei progetti sviluppati. Puoi filtrare per tipologia (Universitari / Personali) e per sottocategoria tematica:
                     </p>
                 </div>
 
-                <!-- Filtri di categoria -->
-                <div class="filter-bar">
-                    <button type="button" class="filter-tab active" data-filter="all">
-                        Tutti <span class="filter-count">${projects.length}</span>
-                    </button>
-                    <button type="button" class="filter-tab" data-filter="devsecops">
-                        DevSecOps & Sicurezza <span class="filter-count">${projects.filter(p => p.category === 'devsecops').length}</span>
-                    </button>
-                    <button type="button" class="filter-tab" data-filter="systems">
-                        Reti & Sistemi <span class="filter-count">${projects.filter(p => p.category === 'systems').length}</span>
-                    </button>
-                    <button type="button" class="filter-tab" data-filter="fullstack">
-                        Web & AI <span class="filter-count">${projects.filter(p => p.category === 'fullstack').length}</span>
-                    </button>
+                <!-- Doppia Barra Filtri: Tipologia e Sottocategorie -->
+                <div class="filter-controls-box mb-4">
+                    <!-- Riga 1: Filtro Tipologia (Universitari vs Personali) -->
+                    <div class="filter-row">
+                        <span class="filter-group-label">Tipologia:</span>
+                        <div class="filter-group-buttons">
+                            <button type="button" class="filter-tab type-filter active" data-type-filter="all">
+                                Tutti <span class="filter-count">${projects.length}</span>
+                            </button>
+                            <button type="button" class="filter-tab type-filter" data-type-filter="university">
+                                <i class="bi bi-mortarboard me-1"></i> Universitari <span class="filter-count">${universityCount}</span>
+                            </button>
+                            <button type="button" class="filter-tab type-filter" data-type-filter="personal">
+                                <i class="bi bi-person me-1"></i> Personali <span class="filter-count">${personalCount}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Riga 2: Filtro Sottocategoria -->
+                    <div class="filter-row mt-2">
+                        <span class="filter-group-label">Area tematica:</span>
+                        <div class="filter-group-buttons">
+                            <button type="button" class="filter-tab category-filter active" data-category-filter="all">
+                                Tutte le aree
+                            </button>
+                            <button type="button" class="filter-tab category-filter" data-category-filter="devsecops">
+                                DevSecOps & Cloud
+                            </button>
+                            <button type="button" class="filter-tab category-filter" data-category-filter="distributed-iot">
+                                IoT & Sistemi Distribuiti
+                            </button>
+                            <button type="button" class="filter-tab category-filter" data-category-filter="systems">
+                                Reti & Sistemi
+                            </button>
+                            <button type="button" class="filter-tab category-filter" data-category-filter="web-ai">
+                                Web & AI
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contatore di corrispondenze filtrate -->
+                <div class="filter-feedback-row mb-3">
+                    <span class="filter-status-text" id="filter-status-text">
+                        Mostrando tutti i <strong>${projects.length}</strong> progetti
+                    </span>
                 </div>
 
                 <!-- Griglia progetti -->
                 <div class="catalog-grid" id="projects-grid">
                     ${projects.map(project => renderCatalogCard(project)).join('')}
+                </div>
+
+                <!-- Azione Carica Altri Progetti se superiori a 6 -->
+                <div class="load-more-wrapper" id="load-more-container">
+                    <button type="button" class="btn-load-more" id="load-more-btn">
+                        <i class="bi bi-plus-lg me-1"></i> Carica altri progetti
+                        <span class="load-more-badge" id="load-more-badge">+8</span>
+                    </button>
+                    <button type="button" class="btn-collapse-less d-none" id="collapse-btn">
+                        <i class="bi bi-chevron-up me-1"></i> Mostra meno
+                    </button>
                 </div>
             </div>
         </section>
@@ -282,24 +374,34 @@ export function renderPortfolioApp() {
 }
 
 /**
- * Renderizza un progetto di punta con layout editoriale
+ * Renderizza un progetto di punta all'interno della slide del carosello
  */
-function renderFeaturedProjectItem(project) {
+function renderFeaturedProjectItem(project, idx) {
     return `
-        <div class="featured-item">
+        <div class="featured-carousel-card">
             <div class="featured-main">
                 <div class="featured-header-row">
                     <div class="featured-title-group">
+                        <span class="featured-slide-badge font-mono">0${idx + 1}</span>
                         <h3 class="featured-title">${project.name}</h3>
                         <span class="project-year">${project.year}</span>
                     </div>
-                    <span class="category-label">${getCategoryLabel(project.category)}</span>
+                    <div class="featured-badge-group">
+                        <span class="type-pill ${project.type}">
+                            ${project.type === 'university' ? '<i class="bi bi-mortarboard"></i>' : '<i class="bi bi-person"></i>'}
+                            ${project.typeLabel}
+                        </span>
+                        <span class="category-label">${project.subcategory}</span>
+                    </div>
                 </div>
+
+                ${project.context ? `<div class="featured-context-note">${project.context}</div>` : ''}
 
                 <p class="featured-highlight">${project.highlight}</p>
                 <p class="featured-description">${project.description}</p>
 
                 <div class="featured-details">
+                    <div class="featured-details-label font-mono">Punti chiave dell'architettura:</div>
                     <ul class="key-points-list">
                         ${project.metrics.map(m => `<li>${m}</li>`).join('')}
                     </ul>
@@ -319,15 +421,23 @@ function renderFeaturedProjectItem(project) {
 }
 
 /**
- * Renderizza una card per il catalogo progetti completo
+ * Renderizza una card per il catalogo con etichette chiare di tipologia e sottocategoria
  */
 function renderCatalogCard(project) {
     return `
-        <div class="catalog-card project-item" data-category="${project.category}">
+        <div class="catalog-card project-item" data-type="${project.type}" data-category="${project.category}">
             <div class="card-top">
-                <span class="card-category">${getCategoryLabel(project.category)}</span>
+                <div class="card-badges-row">
+                    <span class="badge-type ${project.type}">
+                        ${project.type === 'university' ? '<i class="bi bi-mortarboard"></i>' : '<i class="bi bi-person"></i>'}
+                        ${project.typeLabel}
+                    </span>
+                    <span class="badge-subcat">${project.subcategory}</span>
+                </div>
                 <span class="card-year">${project.year}</span>
             </div>
+
+            ${project.context ? `<div class="card-context-line">${project.context}</div>` : ''}
             
             <h3 class="card-title">${project.name}</h3>
             <p class="card-highlight">${project.highlight}</p>
@@ -345,13 +455,4 @@ function renderCatalogCard(project) {
             </div>
         </div>
     `;
-}
-
-function getCategoryLabel(category) {
-    switch (category) {
-        case 'devsecops': return 'DevSecOps & Sicurezza';
-        case 'systems': return 'Reti & Sistemi';
-        case 'fullstack': return 'Web & AI';
-        default: return 'Software';
-    }
 }

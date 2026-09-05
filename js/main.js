@@ -20,7 +20,8 @@ class App {
             // Avvio del router e rendering
             router.init();
 
-            // Interazioni per recruiter: filtri progetti e copia email
+            // Interazioni per recruiter: carosello progetti, filtri catalogo e copia email
+            this.setupFeaturedCarousel();
             this.setupProjectFilters();
             this.setupCopyEmail();
             this.setupMobileMenu();
@@ -33,31 +34,164 @@ class App {
     }
 
     /**
-     * Filtro istantaneo per il catalogo progetti
+     * Sincronizza il contatore e le tab dei progetti in evidenza con lo scorrimento del carosello
+     */
+    setupFeaturedCarousel() {
+        const carouselEl = document.getElementById('featuredCarousel');
+        if (!carouselEl) return;
+
+        carouselEl.addEventListener('slide.bs.carousel', (event) => {
+            const nextIdx = event.to;
+
+            // Aggiorna le tab superiori
+            const tabBtns = carouselEl.querySelectorAll('.carousel-tab-btn');
+            tabBtns.forEach((btn, idx) => {
+                const isActive = (idx === nextIdx);
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+
+            // Aggiorna l'indicatore numerico corrente
+            const currentCounter = document.getElementById('carousel-current-index');
+            if (currentCounter) {
+                currentCounter.textContent = `0${nextIdx + 1}`;
+            }
+        });
+    }
+
+    /**
+     * Filtro istantaneo per il catalogo progetti con paginazione "Carica altri" (soglia 6 progetti)
      */
     setupProjectFilters() {
-        document.addEventListener('click', (e) => {
-            const filterBtn = e.target.closest('.filter-tab, .filter-btn');
-            if (!filterBtn) return;
+        const INITIAL_LIMIT = 6;
+        let currentLimit = INITIAL_LIMIT;
+        let activeType = 'all';
+        let activeCategory = 'all';
 
-            const category = filterBtn.getAttribute('data-filter');
-
-            // Aggiorna stato attivo dei pulsanti filtro
-            document.querySelectorAll('.filter-tab, .filter-btn').forEach(btn => btn.classList.remove('active'));
-            filterBtn.classList.add('active');
-
-            // Filtra le card
+        const applyFilters = () => {
             const projectItems = document.querySelectorAll('.project-item');
+            const matchedItems = [];
+
+            // 1. Identifica tutti i progetti che soddisfano i filtri attivi
             projectItems.forEach(item => {
-                const itemCategory = item.getAttribute('data-category');
-                if (category === 'all' || itemCategory === category) {
-                    item.style.display = 'block';
+                const itemType = item.getAttribute('data-type');
+                const itemCat = item.getAttribute('data-category');
+
+                const matchesType = (activeType === 'all' || itemType === activeType);
+                const matchesCat = (activeCategory === 'all' || itemCat === activeCategory);
+
+                if (matchesType && matchesCat) {
+                    matchedItems.push(item);
+                } else {
+                    item.style.display = 'none';
+                    item.style.opacity = '0';
+                }
+            });
+
+            const totalMatched = matchedItems.length;
+
+            // 2. Mostra solo i progetti fino a currentLimit
+            matchedItems.forEach((item, index) => {
+                if (index < currentLimit) {
+                    item.style.display = 'flex';
                     item.style.opacity = '1';
                 } else {
                     item.style.display = 'none';
                     item.style.opacity = '0';
                 }
             });
+
+            const visibleCount = Math.min(totalMatched, currentLimit);
+
+            // 3. Aggiorna testo di stato per il recruiter
+            const statusEl = document.getElementById('filter-status-text');
+            if (statusEl) {
+                let typeLabel = 'tutti i';
+                if (activeType === 'university') typeLabel = 'universitari';
+                if (activeType === 'personal') typeLabel = 'personali';
+
+                if (totalMatched > visibleCount) {
+                    statusEl.innerHTML = `Mostrando <strong>${visibleCount}</strong> di <strong>${totalMatched}</strong> progetti (${typeLabel})`;
+                } else {
+                    statusEl.innerHTML = `Mostrando tutti i <strong>${totalMatched}</strong> progetti (${typeLabel})`;
+                }
+            }
+
+            // 4. Gestione dinamica del pulsante "Carica altri" e "Mostra meno"
+            const loadMoreContainer = document.getElementById('load-more-container');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            const loadMoreBadge = document.getElementById('load-more-badge');
+            const collapseBtn = document.getElementById('collapse-btn');
+
+            if (loadMoreContainer && loadMoreBtn && collapseBtn) {
+                const remaining = totalMatched - visibleCount;
+
+                if (remaining > 0) {
+                    loadMoreContainer.style.display = 'flex';
+                    loadMoreBtn.classList.remove('d-none');
+                    if (loadMoreBadge) {
+                        loadMoreBadge.textContent = `+${remaining}`;
+                    }
+                    collapseBtn.classList.add('d-none');
+                } else {
+                    loadMoreBtn.classList.add('d-none');
+                    // Se ci sono più di 6 progetti e sono tutti espansi, offri il comando per richiudere
+                    if (totalMatched > INITIAL_LIMIT && currentLimit > INITIAL_LIMIT) {
+                        collapseBtn.classList.remove('d-none');
+                        loadMoreContainer.style.display = 'flex';
+                    } else {
+                        collapseBtn.classList.add('d-none');
+                        loadMoreContainer.style.display = 'none';
+                    }
+                }
+            }
+        };
+
+        // Esecuzione iniziale al caricamento per applicare la soglia di 6
+        applyFilters();
+
+        document.addEventListener('click', (e) => {
+            // Click su filtro tipologia (Universitari / Personali / Tutti)
+            const typeBtn = e.target.closest('.type-filter');
+            if (typeBtn) {
+                activeType = typeBtn.getAttribute('data-type-filter') || 'all';
+                document.querySelectorAll('.type-filter').forEach(btn => btn.classList.remove('active'));
+                typeBtn.classList.add('active');
+                currentLimit = INITIAL_LIMIT; // Reset della soglia al cambio filtro
+                applyFilters();
+                return;
+            }
+
+            // Click su filtro sottocategoria tematica
+            const catBtn = e.target.closest('.category-filter');
+            if (catBtn) {
+                activeCategory = catBtn.getAttribute('data-category-filter') || 'all';
+                document.querySelectorAll('.category-filter').forEach(btn => btn.classList.remove('active'));
+                catBtn.classList.add('active');
+                currentLimit = INITIAL_LIMIT; // Reset della soglia al cambio filtro
+                applyFilters();
+                return;
+            }
+
+            // Click su "Carica altri progetti"
+            const loadBtn = e.target.closest('#load-more-btn');
+            if (loadBtn) {
+                currentLimit += 6;
+                applyFilters();
+                return;
+            }
+
+            // Click su "Mostra meno"
+            const colBtn = e.target.closest('#collapse-btn');
+            if (colBtn) {
+                currentLimit = INITIAL_LIMIT;
+                applyFilters();
+                const catalogEl = document.getElementById('all-projects');
+                if (catalogEl) {
+                    catalogEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                return;
+            }
         });
     }
 
