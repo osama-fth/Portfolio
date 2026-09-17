@@ -5,7 +5,7 @@ export const portfolioData = {
         role: "Aspirante Ingegnere DevSecOps",
         subtitle: "Laureato in Informatica (UPO) • Laureando Magistrale in Sicurezza Informatica (UniMi)",
         location: "Novara, Piemonte, Italia",
-        availability: "Disponibile per opportunità DevSecOps & Cloud/Backend",
+        availability: "Disponibile",
         email: "foutihosama@gmail.com",
         github: "https://github.com/osama-fth",
         linkedin: "https://www.linkedin.com/in/osama-foutih",

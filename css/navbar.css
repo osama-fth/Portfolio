@@ -1,0 +1,249 @@
+/* ==========================================================================
+   NAVBAR — Floating Island, Glass Effect, Theme Toggle
+   ========================================================================== */
+
+#mainNav {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0;
+    z-index: var(--z-nav);
+    height: var(--nav-height);
+    transition: background-color var(--duration-slow) ease,
+                border-color var(--duration-slow) ease,
+                box-shadow var(--duration-normal) ease;
+}
+
+/* Inner flex container */
+#mainNav .container-fluid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ---- Brand ---- */
+
+.navbar-brand {
+    color: var(--text-title) !important;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: opacity var(--duration-fast) ease;
+}
+
+.navbar-brand:hover {
+    opacity: 0.85;
+}
+
+.brand-terminal-glyph {
+    color: var(--accent);
+    font-size: 1.15rem;
+}
+
+.brand-name {
+    color: var(--text-title);
+}
+
+.brand-role-chip {
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: var(--accent-subtle);
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+
+/* ---- Nav Links ---- */
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-size: 0.87rem;
+    font-weight: 500;
+    padding: 0.4rem 0.85rem !important;
+    border-radius: var(--radius-sm);
+    position: relative;
+    transition: color var(--duration-fast) ease;
+}
+
+.nav-link span {
+    position: relative;
+}
+
+/* Underline indicator on active */
+.nav-link span::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: var(--radius-pill);
+    transform: scaleX(0);
+    transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.nav-link:hover {
+    color: var(--text-title) !important;
+}
+
+.nav-link:hover span::after {
+    transform: scaleX(0.6);
+}
+
+.nav-link.active {
+    color: var(--text-title) !important;
+    font-weight: 600;
+}
+
+.nav-link.active span::after {
+    transform: scaleX(1);
+}
+
+
+/* ---- Recruiter Actions ---- */
+
+.nav-action-link {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-sm);
+    transition: all var(--duration-fast) ease;
+    text-decoration: none;
+}
+
+.nav-action-link:hover {
+    color: var(--text-title);
+    border-color: var(--border-hover);
+    background-color: var(--bg-surface-elevated);
+}
+
+.nav-icon-btn {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: color var(--duration-fast) ease,
+                transform var(--duration-fast) ease;
+}
+
+.nav-icon-btn:hover {
+    color: var(--text-title);
+    transform: translateY(-1px);
+}
+
+
+/* ---- Theme Toggle ---- */
+
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-out);
+    flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent);
+    border-color: var(--border-hover);
+    background-color: var(--bg-surface-elevated);
+    transform: rotate(15deg);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.92) rotate(15deg);
+}
+
+.theme-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+
+/* ---- Mobile Toggler ---- */
+
+.navbar-toggler {
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 1.2rem;
+    transition: all var(--duration-fast) ease;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px var(--accent);
+}
+
+.navbar-toggler:hover {
+    border-color: var(--border-hover);
+    background-color: var(--bg-surface);
+}
+
+
+/* ---- Mobile Menu Collapse ---- */
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+        margin-top: var(--space-sm);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .navbar-nav {
+        gap: 0.25rem !important;
+    }
+
+    .nav-link {
+        padding: 0.6rem 0.85rem !important;
+        border-radius: var(--radius-sm);
+    }
+
+    .nav-link:hover {
+        background-color: var(--bg-surface-hover);
+    }
+
+    .nav-link.active {
+        background-color: var(--bg-surface-elevated);
+    }
+
+    .nav-link span::after {
+        display: none;
+    }
+}
+
+
+/* ---- Floating Island (Desktop) ---- */
+
+@media (min-width: 992px) {
+    #mainNav {
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1120px;
+        width: calc(100% - 48px);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-md);
+        border-bottom: 1px solid var(--border-subtle);
+    }
+}

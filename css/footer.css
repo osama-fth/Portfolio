@@ -1,0 +1,47 @@
+/* ==========================================================================
+   FOOTER — Minimal Technical Footer
+   ========================================================================== */
+
+.footer-tech {
+    background-color: var(--bg-base);
+    border-top: 1px solid var(--border-subtle);
+    margin-top: auto;
+    transition: background-color var(--duration-slow) ease,
+                border-color var(--duration-slow) ease;
+}
+
+.text-muted-tech {
+    color: var(--text-muted);
+}
+
+.text-separator {
+    color: var(--border-subtle);
+    user-select: none;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    position: relative;
+    transition: color var(--duration-fast) ease;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.footer-links a:hover {
+    color: var(--text-title);
+}
+
+.footer-links a:hover::after {
+    transform: scaleX(1);
+}

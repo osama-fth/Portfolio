@@ -12,7 +12,7 @@ export function renderPortfolioApp() {
         <!-- Sezione Introduttiva (Hero) -->
         <section id="summary" class="section-hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content hero-entrance">
                     <div class="hero-status-row">
                         <span class="status-indicator">
                             <span class="status-dot"></span>
@@ -27,12 +27,12 @@ export function renderPortfolioApp() {
                     <p class="hero-subtitle">${profile.role}</p>
                     <p class="hero-academic-note">${profile.subtitle}</p>
 
-                    <div class="hero-bio-container">
+                    <div class="hero-bio-container hero-entrance-delayed">
                         <p class="hero-bio-text">${profile.summary}</p>
                     </div>
 
                     <!-- Contatti e azioni immediate per il recruiter -->
-                    <div class="hero-actions-row">
+                    <div class="hero-actions-row hero-entrance-delayed-2">
                         <a href="mailto:${profile.email}" class="btn-action primary">
                             <i class="bi bi-envelope"></i>
                             <span>${profile.email}</span>
@@ -53,7 +53,7 @@ export function renderPortfolioApp() {
                 </div>
 
                 <!-- Aree di competenza principali -->
-                <div class="focus-areas-grid">
+                <div class="focus-areas-grid hero-entrance-delayed-2">
                     ${profile.corePillars.map(pillar => `
                         <div class="focus-card">
                             <div class="focus-title">${pillar.label}</div>
@@ -65,7 +65,7 @@ export function renderPortfolioApp() {
         </section>
 
         <!-- Progetti di Punta citati nel CV e Progetti Architetturali di Rilievo -->
-        <section id="featured-projects" class="section-padding section-alt">
+        <section id="featured-projects" class="section-padding section-alt reveal">
             <div class="container">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-end mb-4 gap-2">
                     <div class="section-heading mb-0">
@@ -127,7 +127,7 @@ export function renderPortfolioApp() {
         </section>
 
         <!-- Esperienza Lavorativa -->
-        <section id="experience" class="section-padding">
+        <section id="experience" class="section-padding reveal">
             <div class="container">
                 <div class="section-heading">
                     <h2 class="section-title">Esperienza lavorativa</h2>
@@ -175,7 +175,7 @@ export function renderPortfolioApp() {
         </section>
 
         <!-- Catalogo Completo dei Progetti con Suddivisione Tipologia e Sottocategorie -->
-        <section id="all-projects" class="section-padding section-alt">
+        <section id="all-projects" class="section-padding section-alt reveal">
             <div class="container">
                 <div class="section-heading">
                     <h2 class="section-title">Tutti i progetti</h2>
@@ -251,7 +251,7 @@ export function renderPortfolioApp() {
         </section>
 
         <!-- Competenze Tecniche -->
-        <section id="skills" class="section-padding">
+        <section id="skills" class="section-padding reveal">
             <div class="container">
                 <div class="section-heading">
                     <h2 class="section-title">Competenze tecniche</h2>
@@ -276,7 +276,7 @@ export function renderPortfolioApp() {
         </section>
 
         <!-- Formazione e Lingue -->
-        <section id="education" class="section-padding section-alt">
+        <section id="education" class="section-padding section-alt reveal">
             <div class="container">
                 <div class="row g-5">
                     <!-- Formazione -->
@@ -326,7 +326,7 @@ export function renderPortfolioApp() {
                         <div class="location-pref-box mt-4">
                             <h4 class="pref-title">Disponibilità lavorativa</h4>
                             <p class="pref-text">
-                                Residenza a Novara. Aperto a posizioni in presenza o ibride nelle province di Novara, Milano e Torino, oppure in modalità full remote nel settore DevSecOps, Cloud & Sviluppo Backend.
+                                Residenza a Novara. Aperto a posizioni in presenza o ibride nelle province di Novara e Milano, oppure in modalità full remote nel settore DevSecOps, Cloud & Sviluppo Backend.
                             </p>
                         </div>
                     </div>
@@ -335,7 +335,7 @@ export function renderPortfolioApp() {
         </section>
 
         <!-- Sezione Contatto Diretto -->
-        <section id="contact" class="section-padding">
+        <section id="contact" class="section-padding reveal">
             <div class="container">
                 <div class="contact-box">
                     <div class="row align-items-center">

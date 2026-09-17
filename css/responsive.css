@@ -1,0 +1,180 @@
+/* ==========================================================================
+   RESPONSIVE — Breakpoint-Specific Overrides
+   Mobile (≤ 640px), Tablet (641-1024px), Desktop (≥ 1025px)
+   ========================================================================== */
+
+
+/* ====================================================================
+   TABLET (641px — 1024px)
+   ==================================================================== */
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .section-padding {
+        padding: var(--space-2xl) 0;
+    }
+
+    .section-hero {
+        padding-top: calc(var(--nav-height) + var(--space-2xl));
+        padding-bottom: var(--space-xl);
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .contact-box {
+        padding: var(--space-xl);
+    }
+
+    /* Catalog grid: 2 columns on tablet */
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ====================================================================
+   MOBILE (≤ 640px)
+   ==================================================================== */
+
+@media (max-width: 640px) {
+    /* Global */
+    .section-padding {
+        padding: var(--space-xl) 0;
+    }
+
+    .section-heading {
+        margin-bottom: var(--space-lg);
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .section-description {
+        font-size: 0.9rem;
+    }
+
+    /* Hero */
+    .hero-actions-row .btn-action {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Carousel tabs: allow horizontal scroll */
+    .carousel-project-tabs {
+        padding-right: var(--space-md);
+    }
+
+    .carousel-tab-btn {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    /* Featured: stack footer elements */
+    .carousel-footer-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    /* Education: single column */
+    .edu-meta-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+
+    .edu-meta-line .meta-dot {
+        display: none;
+    }
+
+    /* Languages */
+    .lang-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    /* Contact */
+    .contact-info-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .contact-info-strip .meta-dot {
+        display: none;
+    }
+
+    /* Footer */
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem !important;
+        align-items: center;
+    }
+
+    .footer-links .text-separator {
+        display: none;
+    }
+
+    /* Width utility for LG that doesn't exist in Bootstrap */
+    .w-lg-auto {
+        width: 100% !important;
+    }
+}
+
+
+/* ====================================================================
+   DESKTOP-SPECIFIC (≥ 1025px)
+   ==================================================================== */
+
+@media (min-width: 1025px) {
+    /* Extra breathing room for large screens */
+    .section-padding {
+        padding: var(--space-3xl) 0;
+    }
+
+    .section-hero {
+        padding-top: calc(var(--nav-height) + var(--space-3xl) + 12px);
+    }
+
+    /* Width utility */
+    .w-lg-auto {
+        width: auto !important;
+    }
+}
+
+
+/* ====================================================================
+   PRINT STYLES
+   ==================================================================== */
+
+@media print {
+    #mainNav,
+    .toast-popup,
+    .theme-toggle-btn,
+    .carousel-arrow-nav,
+    .load-more-wrapper,
+    .filter-controls-box {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    .section-hero {
+        padding-top: 0;
+    }
+
+    a {
+        color: #000000;
+        text-decoration: underline;
+    }
+}

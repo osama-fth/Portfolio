@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osama Foutih | DevSecOps & Sviluppo Software</title>
+    <title>Osama Foutih | DevSecOps &amp; Sviluppo Software</title>
     <meta name="description"
         content="Portfolio di Osama Foutih – Aspirante Ingegnere DevSecOps. Pipeline CI/CD, Docker, scansione di vulnerabilità con Trivy, Go, Microservizi e sicurezza applicativa.">
     <meta name="author" content="Osama Foutih">
+    <meta name="theme-color" content="#0a0c12">
 
     <!-- Metadati Open Graph per condivisione -->
-    <meta property="og:title" content="Osama Foutih | DevSecOps & Sviluppo Software">
+    <meta property="og:title" content="Osama Foutih | DevSecOps &amp; Sviluppo Software">
     <meta property="og:description"
         content="Laureato in Informatica (UPO), Laureando Magistrale LM-66 in Sicurezza Informatica (UniMi). Docker · CI/CD · Automazione · Trivy · Go · Microservizi.">
     <meta property="og:type" content="website">
@@ -19,18 +20,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    <!-- Tipografia: Inter per la lettura + JetBrains Mono per riferimenti tecnici -->
+    <!-- Tipografia: Geist (display + body) + JetBrains Mono (code) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Foglio di stile personalizzato -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Foglio di stile modulare -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tema: prevenire flash of wrong theme -->
+    <script>
+        (function () {
+            var t = localStorage.getItem('portfolio-theme');
+            if (t === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f8fc');
+            }
+        })();
+    </script>
 </head>
 
 <body>
+    <!-- Skip link per accessibilità -->
+    <a href="#app" class="skip-link">Vai al contenuto principale</a>
+
     <!-- Barra di navigazione fissa (Recruiter Friendly) -->
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container-fluid px-3 px-lg-4">
@@ -87,6 +102,10 @@
                         class="nav-icon-btn" title="Profilo GitHub">
                         <i class="bi bi-github"></i>
                     </a>
+                    <button type="button" id="theme-toggle" class="theme-toggle-btn"
+                        aria-label="Cambia tema chiaro/scuro" title="Cambia tema">
+                        <i class="bi bi-moon" id="theme-icon"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -101,7 +120,7 @@
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 py-4">
                 <div class="footer-left">
                     <p class="mb-0 text-muted-tech small">
-                        &copy; <span id="footer-year"></span> Osama Foutih. Novara, Italia.
+                        &copy; <span id="footer-year"></span> Osama Foutih.
                     </p>
                 </div>
                 <div class="footer-links font-mono small d-flex gap-3">

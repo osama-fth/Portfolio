@@ -1,0 +1,163 @@
+/* ==========================================================================
+   EDUCATION — Academic Background + Languages + Preferences
+   ========================================================================== */
+
+/* ---- Education Entries ---- */
+
+.edu-entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.edu-entry {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg) var(--space-lg);
+    transition: border-color var(--duration-fast) ease,
+                transform var(--duration-normal) var(--ease-out);
+    position: relative;
+}
+
+.edu-entry:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.edu-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-title);
+    margin-bottom: 0;
+    letter-spacing: -0.01em;
+}
+
+.edu-status {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    padding: 0.18rem 0.55rem;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.edu-status.status-current {
+    color: var(--status-green);
+    background-color: var(--status-green-subtle);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.edu-status.status-completed {
+    color: var(--text-muted);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+}
+
+.edu-meta-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.institution-name {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.edu-desc {
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0;
+    max-width: 65ch;
+}
+
+
+/* ---- Languages ---- */
+
+.lang-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.lang-row {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color var(--duration-fast) ease,
+                transform var(--duration-fast) ease;
+}
+
+.lang-row:hover {
+    border-color: var(--border-hover);
+    transform: translateX(3px);
+}
+
+.lang-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-title);
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.lang-level-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.lang-badge {
+    font-size: 0.76rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    padding: 0.18rem 0.55rem;
+    border-radius: var(--radius-pill);
+    flex-shrink: 0;
+}
+
+
+/* ---- Location Preferences ---- */
+
+.location-pref-box {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-top: var(--space-md);
+    border-left: 3px solid var(--accent);
+}
+
+.pref-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-title);
+    margin-bottom: 0.4rem;
+}
+
+.pref-text {
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0;
+}

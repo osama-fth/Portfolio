@@ -1,0 +1,110 @@
+/* ==========================================================================
+   RESET & BASE — Global Defaults
+   ========================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: var(--bg-base);
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.65;
+    font-size: 1rem;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color var(--duration-slow) ease,
+                color var(--duration-slow) ease;
+}
+
+main#app {
+    flex: 1;
+}
+
+/* Override Bootstrap container for optimal line-length */
+.container {
+    max-width: var(--container-max);
+}
+
+/* ---- Links ---- */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color var(--duration-fast) ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* ---- Selection ---- */
+::selection {
+    background-color: var(--accent);
+    color: #ffffff;
+}
+
+/* ---- Skip Link (Accessibility) ---- */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-md);
+    z-index: 9999;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: top var(--duration-fast) ease;
+}
+
+.skip-link:focus {
+    top: var(--space-md);
+    color: #ffffff;
+}
+
+/* ---- Utility ---- */
+.font-mono {
+    font-family: var(--font-mono) !important;
+}
+
+.text-accent {
+    color: var(--accent) !important;
+}
+
+/* ---- Scrollbar (subtle) ---- */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}

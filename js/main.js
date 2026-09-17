@@ -26,6 +26,8 @@ class App {
             this.setupCopyEmail();
             this.setupMobileMenu();
             this.setupExternalLinks();
+            this.setupScrollReveal();
+            this.setupThemeToggle();
 
             this.initialized = true;
         } catch (error) {
@@ -275,6 +277,66 @@ class App {
                 link.setAttribute('target', '_blank');
                 link.setAttribute('rel', 'noopener noreferrer');
             }
+        });
+    }
+
+    /**
+     * Scroll Reveal — IntersectionObserver per animazioni di entrata delle sezioni
+     */
+    setupScrollReveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        if (!reveals.length) return;
+
+        // Rispetta prefers-reduced-motion
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) {
+            reveals.forEach(el => el.classList.add('revealed'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        reveals.forEach(el => observer.observe(el));
+    }
+
+    /**
+     * Theme Toggle — Alterna tema chiaro/scuro con persistenza in localStorage
+     */
+    setupThemeToggle() {
+        const toggle = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-icon');
+        if (!toggle || !icon) return;
+
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+
+        // Sincronizza icona con lo stato iniziale (già gestito dal <script> inline in HTML)
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        icon.className = currentTheme === 'light' ? 'bi bi-sun' : 'bi bi-moon';
+
+        toggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const next = current === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', next);
+            icon.className = next === 'light' ? 'bi bi-sun' : 'bi bi-moon';
+
+            // Aggiorna il theme-color per la barra del browser mobile
+            if (themeColor) {
+                themeColor.setAttribute('content', next === 'light' ? '#f7f8fc' : '#0a0c12');
+            }
+
+            // Persisti la preferenza
+            localStorage.setItem('portfolio-theme', next);
         });
     }
 }
