@@ -52,15 +52,7 @@ export function renderPortfolioApp() {
                     </div>
                 </div>
 
-                <!-- Aree di competenza principali -->
-                <div class="focus-areas-grid hero-entrance-delayed-2">
-                    ${profile.corePillars.map(pillar => `
-                        <div class="focus-card">
-                            <div class="focus-title">${pillar.label}</div>
-                            <div class="focus-desc">${pillar.value}</div>
-                        </div>
-                    `).join('')}
-                </div>
+
             </div>
         </section>
 
@@ -150,7 +142,6 @@ export function renderPortfolioApp() {
                                 </div>
                                 <div class="exp-dates">
                                     <span>${exp.period}</span>
-                                    <span class="duration-tag">${exp.duration}</span>
                                 </div>
                             </div>
 
@@ -299,7 +290,7 @@ export function renderPortfolioApp() {
                                         <span class="meta-dot">/</span>
                                         <span>${edu.location}</span>
                                     </div>
-                                    <p class="edu-desc">${edu.description}</p>
+                                    ${edu.description ? `<p class="edu-desc">${edu.description}</p>` : ''}
                                 </div>
                             `).join('')}
                         </div>
@@ -316,7 +307,6 @@ export function renderPortfolioApp() {
                                 <div class="lang-row">
                                     <div>
                                         <span class="lang-title">${lang.name}</span>
-                                        <span class="lang-level-sub">${lang.level}</span>
                                     </div>
                                     <span class="lang-badge">${lang.badge}</span>
                                 </div>
