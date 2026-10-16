@@ -67,7 +67,7 @@ export const portfolioData = {
             period: "2023 - 2026",
             status: "Conseguita",
             statusBadge: "status-completed",
-            description: "108/110 — Luglio 2026"
+            description: "108/110 — Ottobre 2026"
         },
         {
             degree: "Diploma Liceo Scientifico (Scienze Applicate)",
@@ -82,10 +82,10 @@ export const portfolioData = {
 
     // Competenze linguistiche
     languages: [
-        { name: "Italiano",   badge: "Madrelingua" },
+        { name: "Italiano", badge: "Madrelingua" },
         { name: "Marocchino", badge: "Madrelingua" },
-        { name: "Inglese",    badge: "Fluente / B2" },
-        { name: "Arabo",      badge: "Base / Lavorativo" }
+        { name: "Inglese", badge: "Fluente / B2" },
+        { name: "Arabo", badge: "Base / Lavorativo" }
     ],
 
     // Catalogo completo dei 6 progetti

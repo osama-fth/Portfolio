@@ -1,5 +1,6 @@
 /* ==========================================================================
    EDUCATION — Academic Background + Languages + Preferences
+   (Apple Style: Minimalist Cards, Clean Typography)
    ========================================================================== */
 
 /* ---- Education Entries ---- */
@@ -13,16 +14,19 @@
 .edu-entry {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg) var(--space-lg);
     transition: border-color var(--duration-fast) ease,
-                transform var(--duration-normal) var(--ease-out);
+                transform var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
     position: relative;
+    box-shadow: var(--shadow-sm);
 }
 
 .edu-entry:hover {
     border-color: var(--border-hover);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .edu-header {
@@ -35,7 +39,7 @@
 }
 
 .edu-title {
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-title);
     margin-bottom: 0;
@@ -47,14 +51,14 @@
     font-family: var(--font-mono);
     padding: 0.18rem 0.55rem;
     border-radius: var(--radius-pill);
-    font-weight: 600;
+    font-weight: 500;
     flex-shrink: 0;
 }
 
 .edu-status.status-current {
     color: var(--status-green);
     background-color: var(--status-green-subtle);
-    border: 1px solid rgba(34, 197, 94, 0.15);
+    border: 1px solid var(--border-subtle);
 }
 
 .edu-status.status-completed {
@@ -74,7 +78,7 @@
 }
 
 .institution-name {
-    color: var(--accent);
+    color: var(--text-title);
     font-weight: 500;
 }
 
@@ -104,12 +108,12 @@
     justify-content: space-between;
     align-items: center;
     transition: border-color var(--duration-fast) ease,
-                transform var(--duration-fast) ease;
+                background-color var(--duration-fast) ease;
 }
 
 .lang-row:hover {
     border-color: var(--border-hover);
-    transform: translateX(3px);
+    background-color: var(--bg-surface-elevated);
 }
 
 .lang-title {
@@ -126,12 +130,12 @@
 }
 
 .lang-badge {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-family: var(--font-mono);
     color: var(--text-secondary);
     background-color: var(--bg-surface-elevated);
     border: 1px solid var(--border-subtle);
-    padding: 0.18rem 0.55rem;
+    padding: 0.15rem 0.5rem;
     border-radius: var(--radius-pill);
     flex-shrink: 0;
 }
@@ -142,10 +146,10 @@
 .location-pref-box {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
     padding: var(--space-lg);
     margin-top: var(--space-md);
-    border-left: 3px solid var(--accent);
+    box-shadow: var(--shadow-sm);
 }
 
 .pref-title {

@@ -332,7 +332,7 @@ class App {
 
             // Aggiorna il theme-color per la barra del browser mobile
             if (themeColor) {
-                themeColor.setAttribute('content', next === 'light' ? '#f7f8fc' : '#0a0c12');
+                themeColor.setAttribute('content', next === 'light' ? '#f5f5f7' : '#000000');
             }
 
             // Persisti la preferenza

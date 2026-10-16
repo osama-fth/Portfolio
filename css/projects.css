@@ -1,5 +1,6 @@
 /* ==========================================================================
    PROJECTS — Featured Carousel + All Projects Catalog + Filters
+   (Apple Style: Sleek Cards, Restrained Accents, High Contrast)
    ========================================================================== */
 
 /* ---- Featured Carousel ---- */
@@ -36,7 +37,7 @@
     font-size: 0.84rem;
     white-space: nowrap;
     flex-shrink: 0;
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--duration-fast) ease;
     position: relative;
 }
 
@@ -48,14 +49,14 @@
 
 .carousel-tab-btn.active {
     background-color: var(--bg-surface-elevated);
-    border-color: var(--accent);
+    border-color: var(--border-hover);
     color: var(--text-title);
-    box-shadow: var(--shadow-sm), 0 0 12px var(--accent-glow);
+    box-shadow: var(--shadow-sm);
 }
 
 .carousel-tab-btn .tab-index {
     font-size: 0.72rem;
-    color: var(--accent);
+    color: var(--text-muted);
     font-weight: 600;
 }
 
@@ -71,8 +72,9 @@
 }
 
 .carousel-tab-btn .tab-type-tag.university {
-    background-color: var(--accent-subtle);
-    color: var(--accent);
+    background-color: var(--bg-surface);
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
 }
 
 .carousel-tab-btn .tab-type-tag.personal {
@@ -81,7 +83,7 @@
 }
 
 
-/* ---- Featured Card (Double Bezel) ---- */
+/* ---- Featured Card ---- */
 
 .featured-carousel-card {
     background-color: var(--bg-surface);
@@ -94,14 +96,11 @@
     justify-content: space-between;
     position: relative;
     transition: border-color var(--duration-fast) ease;
-    /* Inner highlight for depth */
-    box-shadow: var(--shadow-sm),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    box-shadow: var(--shadow-sm);
 }
 
 [data-theme="light"] .featured-carousel-card {
-    box-shadow: var(--shadow-md),
-                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: var(--shadow-sm);
 }
 
 .featured-carousel-card:hover {
@@ -125,16 +124,16 @@
 
 .featured-slide-badge {
     font-size: 0.72rem;
-    color: var(--accent);
-    background-color: var(--accent-subtle);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: var(--text-secondary);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
     padding: 0.15rem 0.5rem;
     border-radius: var(--radius-sm);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .featured-title {
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-size: clamp(1.25rem, 2vw, 1.45rem);
     font-weight: 700;
     color: var(--text-title);
     letter-spacing: -0.015em;
@@ -162,8 +161,8 @@
 }
 
 .featured-highlight {
-    font-size: 0.98rem;
-    color: var(--accent);
+    font-size: 0.95rem;
+    color: var(--text-primary);
     font-weight: 500;
     margin-bottom: 0.6rem;
     line-height: 1.5;
@@ -171,8 +170,8 @@
 
 .featured-description {
     font-size: 0.93rem;
-    color: var(--text-primary);
-    line-height: 1.75;
+    color: var(--text-secondary);
+    line-height: 1.7;
     margin-bottom: var(--space-md);
     max-width: 900px;
 }
@@ -189,11 +188,13 @@
 }
 
 .featured-details-label {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
+    font-family: var(--font-sans);
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .key-points-list {
@@ -211,16 +212,16 @@
 }
 
 .key-points-list li + li {
-    margin-top: 0.3rem;
+    margin-top: 0.35rem;
 }
 
 .key-points-list li::before {
-    content: "▸";
+    content: "•";
     position: absolute;
-    left: 0;
-    color: var(--accent);
+    left: 0.2rem;
+    color: var(--text-muted);
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 
@@ -240,20 +241,20 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 500;
     color: var(--text-title);
     padding: 0.4rem 0.85rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     border: 1px solid var(--border-subtle);
     background-color: var(--bg-surface-elevated);
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--duration-fast) ease;
 }
 
 .code-link:hover {
-    color: #ffffff;
-    border-color: var(--accent);
-    background-color: var(--accent);
+    color: var(--text-title);
+    border-color: var(--border-hover);
+    background-color: var(--bg-surface-hover);
     transform: translateY(-1px);
 }
 
@@ -280,24 +281,24 @@
 }
 
 .carousel-arrow-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     color: var(--text-primary);
     cursor: pointer;
-    font-size: 0.95rem;
-    transition: all var(--duration-normal) var(--ease-out);
+    font-size: 0.9rem;
+    transition: all var(--duration-fast) ease;
 }
 
 .carousel-arrow-btn:hover {
     border-color: var(--border-hover);
     background-color: var(--bg-surface-elevated);
-    color: var(--accent);
+    color: var(--text-title);
     transform: translateY(-1px);
 }
 
@@ -309,7 +310,7 @@
     font-size: 0.82rem;
     color: var(--text-secondary);
     padding: 0.38rem 0.8rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     border: 1px solid var(--border-subtle);
     background-color: var(--bg-surface);
     text-decoration: none;
@@ -320,7 +321,7 @@
 }
 
 .jump-link:hover {
-    color: var(--accent);
+    color: var(--text-title);
     border-color: var(--border-hover);
     background-color: var(--bg-surface-elevated);
 }
@@ -334,7 +335,7 @@
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    padding: var(--space-lg) var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
 }
 
 .filter-row {
@@ -345,11 +346,13 @@
 }
 
 .filter-group-label {
-    font-size: 0.82rem;
-    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     color: var(--text-muted);
-    min-width: 110px;
-    font-weight: 500;
+    min-width: 100px;
+    font-weight: 600;
 }
 
 .filter-group-buttons {
@@ -364,15 +367,15 @@
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
     font-family: var(--font-sans);
-    font-size: 0.83rem;
+    font-size: 0.82rem;
     font-weight: 500;
-    padding: 0.35rem 0.8rem;
-    border-radius: var(--radius-md);
+    padding: 0.32rem 0.75rem;
+    border-radius: var(--radius-pill);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--duration-fast) ease;
 }
 
 .filter-tab:hover {
@@ -385,8 +388,7 @@
     color: #ffffff;
     background-color: var(--accent);
     border-color: var(--accent);
-    font-weight: 600;
-    box-shadow: 0 2px 8px var(--accent-glow);
+    font-weight: 500;
 }
 
 .filter-count {
@@ -413,7 +415,7 @@
 
 .catalog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
     gap: var(--space-md);
 }
 
@@ -424,23 +426,16 @@
     padding: var(--space-lg) var(--space-lg);
     display: flex;
     flex-direction: column;
-    transition: all var(--duration-normal) var(--ease-out);
-    /* Inner glow for depth */
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-[data-theme="light"] .catalog-card {
-    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: border-color var(--duration-fast) ease,
+                transform var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
+    box-shadow: var(--shadow-sm);
 }
 
 .catalog-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-}
-
-[data-theme="light"] .catalog-card:hover {
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .card-top {
@@ -481,7 +476,7 @@
 
 .card-highlight {
     font-size: 0.85rem;
-    color: var(--accent);
+    color: var(--text-primary);
     font-weight: 500;
     margin-bottom: 0.6rem;
     line-height: 1.5;
@@ -510,7 +505,7 @@
 .link-github {
     font-size: 0.82rem;
     font-weight: 500;
-    color: var(--text-title);
+    color: var(--text-secondary);
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -519,7 +514,7 @@
 }
 
 .link-github:hover {
-    color: var(--accent);
+    color: var(--text-title);
     transform: translateX(2px);
 }
 
@@ -541,21 +536,20 @@
     background-color: var(--bg-surface);
     color: var(--text-title);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-pill);
+    padding: 0.6rem 1.4rem;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-size: 0.86rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-out);
+    transition: all var(--duration-fast) ease;
 }
 
 .btn-load-more:hover {
-    border-color: var(--accent);
+    border-color: var(--border-hover);
     background-color: var(--bg-surface-elevated);
-    color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    color: var(--text-title);
+    transform: translateY(-1px);
 }
 
 .btn-load-more:active {
@@ -565,11 +559,11 @@
 .load-more-badge {
     font-family: var(--font-mono);
     font-size: 0.72rem;
-    background-color: var(--accent-subtle);
-    color: var(--accent);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    background-color: var(--bg-surface-elevated);
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
     padding: 0.12rem 0.5rem;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
 }
 
 .btn-collapse-less {
@@ -579,8 +573,8 @@
     background-color: transparent;
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
-    padding: 0.65rem 1.2rem;
+    border-radius: var(--radius-pill);
+    padding: 0.6rem 1.2rem;
     font-family: var(--font-sans);
     font-size: 0.84rem;
     font-weight: 500;

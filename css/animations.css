@@ -1,5 +1,6 @@
 /* ==========================================================================
    ANIMATIONS — Keyframes, Scroll Reveal, Reduced Motion
+   Apple motion: spostamenti minimi (8-12px), durata breve, nessun bounce.
    ========================================================================== */
 
 /* ---- Keyframes ---- */
@@ -7,7 +8,7 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -22,27 +23,7 @@
     }
     50% {
         opacity: 0.5;
-        transform: scale(1.8);
-    }
-}
-
-@keyframes slideInFromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
+        transform: scale(1.4);
     }
 }
 
@@ -51,7 +32,7 @@
 
 .reveal {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(12px);
     transition: opacity var(--duration-reveal) var(--ease-out),
                 transform var(--duration-reveal) var(--ease-out);
 }
@@ -63,25 +44,25 @@
 
 /* Stagger delays for child elements */
 .reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger > *:nth-child(2) { transition-delay: 60ms; }
-.reveal-stagger > *:nth-child(3) { transition-delay: 120ms; }
-.reveal-stagger > *:nth-child(4) { transition-delay: 180ms; }
-.reveal-stagger > *:nth-child(5) { transition-delay: 240ms; }
-.reveal-stagger > *:nth-child(6) { transition-delay: 300ms; }
-.reveal-stagger > *:nth-child(7) { transition-delay: 360ms; }
-.reveal-stagger > *:nth-child(8) { transition-delay: 420ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 50ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 100ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 150ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 200ms; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 250ms; }
+.reveal-stagger > *:nth-child(7) { transition-delay: 300ms; }
+.reveal-stagger > *:nth-child(8) { transition-delay: 350ms; }
 
 /* Hero entrance — immediate on load, no scroll trigger */
 .hero-entrance {
-    animation: fadeInUp 0.8s var(--ease-out) both;
+    animation: fadeInUp 0.45s var(--ease-out) both;
 }
 
 .hero-entrance-delayed {
-    animation: fadeInUp 0.8s var(--ease-out) 0.15s both;
+    animation: fadeInUp 0.45s var(--ease-out) 0.10s both;
 }
 
 .hero-entrance-delayed-2 {
-    animation: fadeInUp 0.8s var(--ease-out) 0.3s both;
+    animation: fadeInUp 0.45s var(--ease-out) 0.20s both;
 }
 
 
