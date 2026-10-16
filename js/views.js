@@ -2,7 +2,7 @@ import { profile, experiences, skillsGrouped, education, languages, projects } f
 
 /**
  * Interfaccia pulita, autentica e diretta per recruiter e hiring manager.
- * Include Connected Games Platform e suddivisione chiara tra progetti universitari e personali con relative sottocategorie.
+ * Catalogo di 6 progetti selezionati: connectedgames, cicd, loadbalancer, portscanner, cryptool, aitravelplanner.
  */
 export function renderPortfolioApp() {
     const universityCount = projects.filter(p => p.type === 'university').length;
@@ -76,7 +76,7 @@ export function renderPortfolioApp() {
                     </div>
                     <div class="featured-catalog-jump d-none d-md-block">
                         <a href="#all-projects" class="jump-link font-mono">
-                            Tutti i 14 progetti <i class="bi bi-arrow-down-short"></i>
+                            Tutti i ${projects.length} progetti <i class="bi bi-arrow-down-short"></i>
                         </a>
                     </div>
                 </div>
@@ -241,7 +241,7 @@ export function renderPortfolioApp() {
                 <div class="load-more-wrapper" id="load-more-container">
                     <button type="button" class="btn-load-more" id="load-more-btn">
                         <i class="bi bi-plus-lg me-1"></i> Carica altri progetti
-                        <span class="load-more-badge" id="load-more-badge">+8</span>
+                        <span class="load-more-badge" id="load-more-badge"></span>
                     </button>
                     <button type="button" class="btn-collapse-less d-none" id="collapse-btn">
                         <i class="bi bi-chevron-up me-1"></i> Mostra meno
