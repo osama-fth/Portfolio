@@ -156,18 +156,23 @@ export const portfolioData = {
         },
         {
             id: "cryptool",
-            name: "CrypTool Lab",
+            name: "CrypTool",
             type: "personal",
             typeLabel: "Personale",
             category: "devsecops",
             subcategory: "Sicurezza & Crittografia",
             featured: false,
-            year: "2025",
+            year: "2026",
             context: "Progetto Personale",
-            highlight: "Benchmarking AES-256/RSA e simulazione attacchi su cifrari obsoleti, esposto via API FastAPI",
-            description: "Ambiente controllato per analizzare algoritmi di cifratura moderni (AES-256, RSA, hashing Bcrypt) e simulare attacchi su cifrari obsoleti (forza bruta, dizionario, tabelle arcobaleno), esponendo metriche via API FastAPI.",
-            technologies: ["Python", "FastAPI", "Docker", "OpenAPI", "Crittografia"],
-            github: "https://github.com/osama-fth/cryptool"
+            highlight: "Laboratorio crittografico con standard post-quantum NIST (FIPS 203/204), simulazioni quantistiche e API FastAPI",
+            description: "Piattaforma interattiva per sperimentare con 10 strumenti crittografici, attacchi computazionali e standard NIST 2024. Include cifratura autenticata AES-256-GCM, hashing Bcrypt con benchmark, scambio quantistico BB84 con rilevamento QBER, algoritmi Shor e Grover, e crittografia post-quantum FIPS 203/204 (ML-KEM, ML-DSA). L'architettura single-container coordina Nginx, Supervisor e oltre 18 endpoint REST in FastAPI.",
+            technologies: ["FastAPI", "Docker", "Nginx", "Python", "NIST PQC (FIPS 203/204)", "OpenAPI"],
+            metrics: [
+                "10 tool didattici: cifrari storici, hashing, AES-256-GCM, protocollo quantistico BB84 e attacchi Shor/Grover",
+                "Standard post-quantum NIST FIPS 203 (ML-KEM) e FIPS 204 (ML-DSA)",
+                "Architettura single-container con Supervisor, Nginx reverse proxy e oltre 18 endpoint REST FastAPI"
+            ],
+            github: "https://github.com/osama-fth/CrypTool"
         },
         {
             id: "aitravelplanner",
